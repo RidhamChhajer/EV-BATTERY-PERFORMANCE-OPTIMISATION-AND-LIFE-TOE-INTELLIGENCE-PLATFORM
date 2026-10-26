@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "protocol": "TUM_BMW_I3",
+  "selected": {
+    "family": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    }
+  },
+  "train_validation_sessions": 55,
+  "test_sessions": 15,
+  "test_eligible_rows": 26153,
+  "test_runtime_supported": 25570,
+  "invalid_reference_labels_retained": 0,
+  "target_description": "Vehicle-reported BMS SOC",
+  "test_selection_frozen": true,
+  "evaluation": "Held recording days from the same BMW i3",
+  "postprocessing": "Raw predictions preserved; output clipped to physical SOC bounds; both raw and bounded errors reported"
+}

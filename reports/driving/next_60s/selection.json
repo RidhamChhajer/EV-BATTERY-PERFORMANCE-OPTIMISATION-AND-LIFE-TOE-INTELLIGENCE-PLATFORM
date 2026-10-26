@@ -1,0 +1,160 @@
+{
+  "selected": {
+    "family": "random_forest",
+    "parameters": {
+      "n_estimators": 150,
+      "max_depth": 14,
+      "min_samples_leaf": 10
+    }
+  },
+  "ranking": [
+    {
+      "family": "ridge",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "training_group_cv_macro_mae": 67.51418692901399,
+      "validation": {
+        "n": 866,
+        "sessions": 7,
+        "mae": 86.00955611180386,
+        "macro_session_mae": 97.02159455227302,
+        "rmse": 129.3409335365392,
+        "bias": -14.476526998351396,
+        "p95_absolute_error": 288.4132895996714,
+        "max_absolute_error": 663.7306978603243
+      }
+    },
+    {
+      "family": "hist_gradient_boosting",
+      "parameters": {
+        "max_iter": 250,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 30,
+        "learning_rate": 0.05,
+        "l2_regularization": 1.0
+      },
+      "training_group_cv_macro_mae": 69.91171366430001,
+      "validation": {
+        "n": 866,
+        "sessions": 7,
+        "mae": 92.33375238520208,
+        "macro_session_mae": 99.56837676103589,
+        "rmse": 143.5975794049262,
+        "bias": -32.46997503511892,
+        "p95_absolute_error": 337.1665846817316,
+        "max_absolute_error": 683.7968002216519
+      }
+    },
+    {
+      "family": "hist_gradient_boosting",
+      "parameters": {
+        "max_iter": 350,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 30,
+        "learning_rate": 0.05,
+        "l2_regularization": 5.0
+      },
+      "training_group_cv_macro_mae": 71.96415895590242,
+      "validation": {
+        "n": 866,
+        "sessions": 7,
+        "mae": 99.1938390241985,
+        "macro_session_mae": 104.32593156723998,
+        "rmse": 151.0998962781311,
+        "bias": -32.57618512017146,
+        "p95_absolute_error": 355.4193332628243,
+        "max_absolute_error": 745.7561760961548
+      }
+    },
+    {
+      "family": "random_forest",
+      "parameters": {
+        "n_estimators": 150,
+        "max_depth": 14,
+        "min_samples_leaf": 10
+      },
+      "training_group_cv_macro_mae": 69.25952387038694,
+      "validation": {
+        "n": 866,
+        "sessions": 7,
+        "mae": 86.83793115118219,
+        "macro_session_mae": 92.36036219915958,
+        "rmse": 133.9066340873575,
+        "bias": -24.076418456006873,
+        "p95_absolute_error": 293.6134321277597,
+        "max_absolute_error": 660.9610935174477
+      }
+    },
+    {
+      "family": "extra_trees",
+      "parameters": {
+        "n_estimators": 150,
+        "max_depth": 18,
+        "min_samples_leaf": 10
+      },
+      "training_group_cv_macro_mae": 66.54987108632622,
+      "validation": {
+        "n": 866,
+        "sessions": 7,
+        "mae": 85.44628091371668,
+        "macro_session_mae": 92.37946099428746,
+        "rmse": 132.0255376997915,
+        "bias": -25.098809843289665,
+        "p95_absolute_error": 302.97993680824214,
+        "max_absolute_error": 662.3001386416748
+      }
+    }
+  ],
+  "features": [
+    "speed_kmh",
+    "speed_mean_30s",
+    "speed_std_30s",
+    "speed_mean_60s",
+    "stopped_fraction_60s",
+    "acceleration_mean_30s",
+    "power_mean_30s_kw",
+    "power_mean_60s_kw",
+    "power_std_60s_kw",
+    "temperature_c",
+    "ambient_temperature_c",
+    "heating_power_kw",
+    "elevation_change_60s",
+    "recent_wh_per_km",
+    "low_speed_history"
+  ],
+  "target": "target_next_60s_wh",
+  "selection_rule": "Minimum validation macro-session MAE; training-only grouped CV reported alongside; no test outcomes used",
+  "training_groups": [
+    "2019-06-25",
+    "2019-07-01",
+    "2019-07-03",
+    "2019-07-04",
+    "2019-07-05",
+    "2019-07-09",
+    "2019-07-11",
+    "2019-07-12",
+    "2019-07-15",
+    "2019-07-16",
+    "2019-07-19",
+    "2019-12-07",
+    "2019-12-10",
+    "2019-12-17",
+    "2019_12_09",
+    "2020-01-05",
+    "2020-01-07",
+    "2020-01-08",
+    "2020-01-09",
+    "2020-01-11",
+    "2020-01-13",
+    "2020-01-14",
+    "2020-01-15",
+    "2020-02-07"
+  ],
+  "validation_groups": [
+    "2019-06-28",
+    "2019-07-22",
+    "2020-01-02",
+    "2020-01-10"
+  ]
+}

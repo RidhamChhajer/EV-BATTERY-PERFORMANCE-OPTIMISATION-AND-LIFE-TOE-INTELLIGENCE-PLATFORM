@@ -1,0 +1,6 @@
+component,mae,unit,evaluation
+CALCE lab SOC,0.6673773448324135,SOC percentage points,Held complete BJDST profile
+Vehicle SOC without a starting value,4.2706199615308345,SOC percentage points,Held recording days
+Vehicle SOC with a known starting value,0.098260542037217,SOC percentage points,Held recording days
+next_60s,66.76690185501745,Wh,Held recording days
+next_km,50.35333646921862,Wh/km,Held recording days

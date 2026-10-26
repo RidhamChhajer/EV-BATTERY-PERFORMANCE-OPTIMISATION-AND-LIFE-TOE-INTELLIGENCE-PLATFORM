@@ -1,0 +1,12 @@
+{
+  "archive_sha256": "fb59fa697344794321319c7e9d73968d563ee78500f2b173d445f78ff3cc40f5",
+  "test_opened": true,
+  "time_resolution_s": 1,
+  "soc_label": "Recorded BMS SoC [%], excluding displayed/min/max SOC from predictors",
+  "energy_label": "Trapezoidal integration of -voltage*current; positive = net consumption; regeneration retained",
+  "splitting": "Whole recording days, stratified by summer/winter and deterministic SHA-256 seed 42; never individual rows",
+  "forecast_horizons": [
+    "next 60 seconds net Wh",
+    "next 1 km net Wh/km, requiring the km to occur within ten minutes"
+  ]
+}

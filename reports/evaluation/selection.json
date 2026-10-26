@@ -1,0 +1,54 @@
+{
+  "selection_policy": "Hyperparameters: mean held-out-battery MAE in four training-only folds. Model family: validation MAE. No refitting on validation.",
+  "dataset_sha256": "8b58746034440c5b4e9d413eff7a10fd12a7eab2c358566063d8d6b7e058aeef",
+  "training_cells": [
+    "CS2_33",
+    "CS2_35",
+    "CS2_36",
+    "CS2_37"
+  ],
+  "validation_cell": "CS2_34",
+  "test_cell": "CS2_38",
+  "random_state": 42,
+  "sklearn_version": "1.9.1",
+  "selected": {
+    "with_history": {
+      "model": "persistence",
+      "parameters": {},
+      "cv_macro_mae_pp": 0.3318816155739948,
+      "validation_metrics": {
+        "n": 758,
+        "mae_pp": 0.24322149534681206,
+        "rmse_pp": 0.46343925345721015,
+        "bias_pp": 0.07293273636602522,
+        "r2": 0.9987944298711368
+      },
+      "features": [
+        "previous_soh_reference_pct"
+      ],
+      "artifact": "models\\final\\with_history_rule.json"
+    },
+    "without_history": {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "cv_macro_mae_pp": 2.301050014949502,
+      "validation_metrics": {
+        "n": 758,
+        "mae_pp": 2.2811907214137324,
+        "rmse_pp": 4.45164472349184,
+        "bias_pp": -0.6314836558955466,
+        "r2": 0.8887633654975743
+      },
+      "features": [
+        "observed_cycle_number",
+        "elapsed_days",
+        "charge_voltage_mean_v",
+        "charge_current_mean_a",
+        "charge_duration_approx_s"
+      ],
+      "artifact": "models\\final\\soh_without_history.joblib"
+    }
+  }
+}

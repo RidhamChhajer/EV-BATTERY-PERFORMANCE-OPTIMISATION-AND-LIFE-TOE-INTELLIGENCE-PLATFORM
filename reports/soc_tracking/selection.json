@@ -1,0 +1,73 @@
+{
+  "selected": {
+    "features": [
+      "net_charge_ah"
+    ],
+    "alpha": 0.01,
+    "validation": {
+      "n": 1945,
+      "sessions": 7,
+      "mae": 0.11906656927684849,
+      "macro_session_mae": 0.08611113790235796,
+      "rmse": 0.1585775390160612,
+      "bias": 0.11423515613152481,
+      "p95_absolute_error": 0.336469519672692,
+      "max_absolute_error": 0.4233551684706178
+    }
+  },
+  "ranking": [
+    {
+      "features": [
+        "net_charge_ah"
+      ],
+      "alpha": 0.01,
+      "validation": {
+        "n": 1945,
+        "sessions": 7,
+        "mae": 0.11906656927684849,
+        "macro_session_mae": 0.08611113790235796,
+        "rmse": 0.1585775390160612,
+        "bias": 0.11423515613152481,
+        "p95_absolute_error": 0.336469519672692,
+        "max_absolute_error": 0.4233551684706178
+      }
+    },
+    {
+      "features": [
+        "net_charge_ah",
+        "charge_temperature_interaction"
+      ],
+      "alpha": 0.1,
+      "validation": {
+        "n": 1945,
+        "sessions": 7,
+        "mae": 0.10648638683012371,
+        "macro_session_mae": 0.08897974644407913,
+        "rmse": 0.13622514840395528,
+        "bias": 0.10178150884826923,
+        "p95_absolute_error": 0.28348212809988593,
+        "max_absolute_error": 0.38699441684583036
+      }
+    },
+    {
+      "features": [
+        "net_charge_ah",
+        "charge_temperature_interaction",
+        "charge_initial_soc_interaction"
+      ],
+      "alpha": 1.0,
+      "validation": {
+        "n": 1945,
+        "sessions": 7,
+        "mae": 0.09616822160215002,
+        "macro_session_mae": 0.09979611428609006,
+        "rmse": 0.14302060386681575,
+        "bias": 0.08120723602029384,
+        "p95_absolute_error": 0.40925537014957025,
+        "max_absolute_error": 0.5358588874964738
+      }
+    }
+  ],
+  "test_not_used": true,
+  "assumption": "Known first-observation SOC; this is a different input scenario from voltage/current-only estimation"
+}

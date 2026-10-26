@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "unit_tests": 12,
+  "real_sensor_sessions_checked": 3,
+  "checks": [
+    "feature consistency",
+    "serialized estimator",
+    "before-discharge prediction"
+  ]
+}

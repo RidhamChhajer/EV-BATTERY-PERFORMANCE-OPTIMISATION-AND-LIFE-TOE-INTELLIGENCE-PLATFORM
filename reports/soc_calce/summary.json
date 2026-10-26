@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "protocol": "CALCE_NMC_25C",
+  "selected": {
+    "family": "hist_gradient_boosting",
+    "parameters": {
+      "max_iter": 350,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 30,
+      "learning_rate": 0.05,
+      "l2_regularization": 5.0
+    }
+  },
+  "train_validation_sessions": 6,
+  "test_sessions": 2,
+  "test_eligible_rows": 17937,
+  "test_runtime_supported": 17937,
+  "invalid_reference_labels_retained": 483,
+  "target_description": "Earlier-capacity, full-charge anchored coulomb reference",
+  "test_selection_frozen": true,
+  "evaluation": "Held complete load profile",
+  "postprocessing": "Raw predictions preserved; output clipped to physical SOC bounds; both raw and bounded errors reported"
+}

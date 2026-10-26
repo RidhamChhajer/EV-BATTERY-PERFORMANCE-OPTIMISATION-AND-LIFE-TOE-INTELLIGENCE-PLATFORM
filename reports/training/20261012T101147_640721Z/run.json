@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "run_id": "20261012T101147_640721Z",
+  "dataset_sha256": "8b58746034440c5b4e9d413eff7a10fd12a7eab2c358566063d8d6b7e058aeef",
+  "training_cells": [
+    "CS2_33",
+    "CS2_35",
+    "CS2_36",
+    "CS2_37"
+  ],
+  "validation_cells": [
+    "CS2_34"
+  ],
+  "test_rows_skipped_without_parsing": 993,
+  "test_evaluated": false,
+  "training_cell_weights": "Each cell has equal total weight; mean sample weight is one",
+  "versions": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "models": [
+    "models\\training_runs\\20261012T101147_640721Z\\ridge_with_history.joblib",
+    "models\\training_runs\\20261012T101147_640721Z\\random_forest_with_history.joblib",
+    "models\\training_runs\\20261012T101147_640721Z\\ridge_without_history.joblib",
+    "models\\training_runs\\20261012T101147_640721Z\\random_forest_without_history.joblib"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "selected": {
+    "features": [
+      "net_charge_ah"
+    ],
+    "alpha": 0.01,
+    "validation": {
+      "n": 1945,
+      "sessions": 7,
+      "mae": 0.11906656927684849,
+      "macro_session_mae": 0.08611113790235796,
+      "rmse": 0.1585775390160612,
+      "bias": 0.11423515613152481,
+      "p95_absolute_error": 0.336469519672692,
+      "max_absolute_error": 0.4233551684706178
+    }
+  },
+  "test_recording_days": 7,
+  "initialisation": "Uses one known SOC at the beginning of each uninterrupted observation history; no later SOC labels are predictors"
+}

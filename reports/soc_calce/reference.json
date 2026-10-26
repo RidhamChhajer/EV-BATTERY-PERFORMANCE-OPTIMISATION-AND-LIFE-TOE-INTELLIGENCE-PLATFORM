@@ -1,0 +1,7 @@
+{
+  "capacity_ah": 2.028344937765965,
+  "source": "Earlier SP20-2 initial-capacity discharge, independently measured before these dynamic sessions",
+  "calibration_sha256": "d59f6036c9635ffda40d0d0d497e14593b8559f371db192d94aa403740f5f4ed",
+  "soc_target": "Coulomb-counter reference anchored to completed full charge; includes regenerative charging; not a separately measured true-SOC sensor",
+  "test_opened": true
+}

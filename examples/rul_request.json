@@ -1,0 +1,112 @@
+{
+  "protocol": "CALCE_CS2",
+  "discharge_c_rate": 1.0,
+  "health_source": "measured",
+  "health_history": [
+    {
+      "observed_cycle_number": 180,
+      "elapsed_days": 39.23917824074074,
+      "soh_reference_pct": 89.0688346128153
+    },
+    {
+      "observed_cycle_number": 181,
+      "elapsed_days": 39.37386574074074,
+      "soh_reference_pct": 89.09864793246504
+    },
+    {
+      "observed_cycle_number": 182,
+      "elapsed_days": 39.50855324074074,
+      "soh_reference_pct": 89.13027083626305
+    },
+    {
+      "observed_cycle_number": 183,
+      "elapsed_days": 39.643252314814816,
+      "soh_reference_pct": 89.1632284559941
+    },
+    {
+      "observed_cycle_number": 184,
+      "elapsed_days": 39.77798611111111,
+      "soh_reference_pct": 89.1901527257134
+    },
+    {
+      "observed_cycle_number": 185,
+      "elapsed_days": 39.912650462962965,
+      "soh_reference_pct": 89.29469476085059
+    },
+    {
+      "observed_cycle_number": 186,
+      "elapsed_days": 40.04743055555556,
+      "soh_reference_pct": 89.3228751816143
+    },
+    {
+      "observed_cycle_number": 187,
+      "elapsed_days": 40.1821412037037,
+      "soh_reference_pct": 89.34019187938053
+    },
+    {
+      "observed_cycle_number": 188,
+      "elapsed_days": 40.31686342592592,
+      "soh_reference_pct": 89.34713688826692
+    },
+    {
+      "observed_cycle_number": 189,
+      "elapsed_days": 40.45159722222222,
+      "soh_reference_pct": 89.38953678471567
+    },
+    {
+      "observed_cycle_number": 190,
+      "elapsed_days": 40.58641203703704,
+      "soh_reference_pct": 89.40374716548585
+    },
+    {
+      "observed_cycle_number": 191,
+      "elapsed_days": 40.72121527777778,
+      "soh_reference_pct": 89.40960425117511
+    },
+    {
+      "observed_cycle_number": 192,
+      "elapsed_days": 40.8559375,
+      "soh_reference_pct": 89.41751607883567
+    },
+    {
+      "observed_cycle_number": 193,
+      "elapsed_days": 40.99068287037037,
+      "soh_reference_pct": 89.42838737900266
+    },
+    {
+      "observed_cycle_number": 194,
+      "elapsed_days": 41.12538194444444,
+      "soh_reference_pct": 89.42499582319616
+    },
+    {
+      "observed_cycle_number": 195,
+      "elapsed_days": 41.26013888888889,
+      "soh_reference_pct": 89.42659056381598
+    },
+    {
+      "observed_cycle_number": 196,
+      "elapsed_days": 41.39494212962963,
+      "soh_reference_pct": 89.42270406671588
+    },
+    {
+      "observed_cycle_number": 197,
+      "elapsed_days": 41.52967592592593,
+      "soh_reference_pct": 88.53755757427355
+    },
+    {
+      "observed_cycle_number": 198,
+      "elapsed_days": 41.66413194444444,
+      "soh_reference_pct": 88.2750203598366
+    },
+    {
+      "observed_cycle_number": 199,
+      "elapsed_days": 41.79888888888889,
+      "soh_reference_pct": 88.21355358378509
+    },
+    {
+      "observed_cycle_number": 200,
+      "elapsed_days": 41.93328703703704,
+      "soh_reference_pct": 87.92035589944254
+    }
+  ]
+}

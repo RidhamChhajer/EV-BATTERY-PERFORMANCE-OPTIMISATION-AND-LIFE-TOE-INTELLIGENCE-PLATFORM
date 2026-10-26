@@ -1,0 +1,72 @@
+{
+  "status": "complete_research_backend",
+  "verified_at_utc": "2026-10-26T17:15:13.039089+00:00",
+  "checks": [
+    "Seven fitted artifact/source hashes match",
+    "Feature orders and sklearn versions match",
+    "RUL threshold labels match source history",
+    "All additional source hashes match",
+    "Feasible tested protocol selection matches",
+    "No SOC/vehicle test-group overlap",
+    "All component demos and SOC-to-energy-to-range pipeline succeed"
+  ],
+  "artifacts": [
+    {
+      "component": "soh",
+      "model_file": "models/reliable/soh_guarded.joblib",
+      "model_sha256": "13159fbd83679296bfe2ce23d52397f2eeb3728ea2f509a7ceef411427c7d13d",
+      "data_file": "data/processed/soh_reliable/training_examples.csv",
+      "data_sha256": "6e802d367f0876e64fe9798d8116615d7db965dbdb23abb3f75f11d3e8bf1424"
+    },
+    {
+      "component": "rul",
+      "model_file": "models/final/rul.joblib",
+      "model_sha256": "fe22fe2e254c555380e87cfb70419fd078eb2a9e7ec9eabbc97dcc4fc5af2f3d",
+      "data_file": "data/processed/rul_reliable/examples.csv",
+      "data_sha256": "b040c7cf521730b24b5ebb4b0bbc973edddd826eccc27266c43dcd109989e137"
+    },
+    {
+      "component": "charging",
+      "model_file": "models/final/charging.joblib",
+      "model_sha256": "6a940fc50eeac6a8ff394907028f1f14e12fda0cafcb23bca801e1a01ab065c1",
+      "data_file": "data/raw/charging_attia2020/final_results.csv",
+      "data_sha256": "94359f14e0066e1464e0e06d0ed3c4ceaccc8ea779b2fd492509cea02a22e5bb"
+    },
+    {
+      "component": "soc_calce",
+      "model_file": "models/final/soc_calce.joblib",
+      "model_sha256": "32360430fd6922d18d9c87557f41d4dd9046b0b69258e1bf1741c13517f6b4d5",
+      "data_file": "data/processed/soc_calce/examples.csv",
+      "data_sha256": "8f525f8892e585ec65fb966d83da9e0de58c4e07c586b560dd7af375bf49e732"
+    },
+    {
+      "component": "soc_vehicle",
+      "model_file": "models/final/soc_vehicle.joblib",
+      "model_sha256": "a01a579adf24308d43d7f55c820b02f3a6bf69768f4e4420f476ef025314079b",
+      "data_file": "data/processed/vehicle_tum/examples.csv",
+      "data_sha256": "f8ed2cd669d6a334c524301abdaa381da889a15febf22260b1e7d6407d302460"
+    },
+    {
+      "component": "soc_tracking",
+      "model_file": "models/final/soc_tracking.joblib",
+      "model_sha256": "83443a6c60f2373732b07d1a91ea0422297014d60e42a021262ce005920ca548",
+      "data_file": "data/processed/vehicle_tum/examples.csv",
+      "data_sha256": "f8ed2cd669d6a334c524301abdaa381da889a15febf22260b1e7d6407d302460"
+    },
+    {
+      "component": "driving",
+      "model_file": "models/final/driving.joblib",
+      "model_sha256": "d6c7bc883c7497714e7906b04165b10cb098e3d603cd52fad402dbe77cddabbc",
+      "data_file": "data/processed/vehicle_tum/examples.csv",
+      "data_sha256": "f8ed2cd669d6a334c524301abdaa381da889a15febf22260b1e7d6407d302460"
+    }
+  ],
+  "frontend": "Available in frontend/; verify separately with npm test and npm run test:e2e",
+  "limits": [
+    "SOH/RUL/charging development evaluation; SOC/driving held profiles/days within the same source cell/vehicle",
+    "RUL counts recorded groups, not EV years/km",
+    "Charging ranks nine tested LFP protocols under fixed study conditions; not personalised EV control",
+    "SOC tracking requires a correct starting SOC; sensor-only SOC is less accurate",
+    "Range is conditional on predicted consumption and supplied capacity/SOC window; zero-error performance is not established"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "choices": {
+    "next_60s": {
+      "candidate": {
+        "family": "random_forest",
+        "parameters": {
+          "n_estimators": 150,
+          "max_depth": 14,
+          "min_samples_leaf": 10
+        }
+      },
+      "strategy": "ml",
+      "validation_persistence": {
+        "n": 866,
+        "sessions": 7,
+        "mae": 97.52070757009939,
+        "macro_session_mae": 120.56557684809819,
+        "rmse": 151.91812352134957,
+        "bias": 8.14946989377477,
+        "p95_absolute_error": 359.48197633298844,
+        "max_absolute_error": 635.4676631694425
+      },
+      "training_fallback": 89.05350338611015
+    },
+    "next_km": {
+      "candidate": {
+        "family": "extra_trees",
+        "parameters": {
+          "n_estimators": 150,
+          "max_depth": 18,
+          "min_samples_leaf": 10
+        }
+      },
+      "strategy": "ml",
+      "validation_persistence": {
+        "n": 782,
+        "sessions": 7,
+        "mae": 82.72106340696673,
+        "macro_session_mae": 96.17379111013862,
+        "rmse": 130.46606888011277,
+        "bias": 12.898152277628963,
+        "p95_absolute_error": 235.51406514086315,
+        "max_absolute_error": 1270.6797909401228
+      },
+      "training_fallback": 160.6357727390557
+    }
+  },
+  "features": [
+    "speed_kmh",
+    "speed_mean_30s",
+    "speed_std_30s",
+    "speed_mean_60s",
+    "stopped_fraction_60s",
+    "acceleration_mean_30s",
+    "power_mean_30s_kw",
+    "power_mean_60s_kw",
+    "power_std_60s_kw",
+    "temperature_c",
+    "ambient_temperature_c",
+    "heating_power_kw",
+    "elevation_change_60s",
+    "recent_wh_per_km",
+    "low_speed_history"
+  ],
+  "test_not_used_for_selection": true
+}

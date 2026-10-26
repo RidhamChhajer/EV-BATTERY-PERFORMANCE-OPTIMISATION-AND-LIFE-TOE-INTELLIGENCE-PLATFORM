@@ -1,0 +1,4 @@
+split,discharge_c_rate,cells,examples
+train,0.5,1,832
+train,1.0,3,2804
+validation,0.5,1,758

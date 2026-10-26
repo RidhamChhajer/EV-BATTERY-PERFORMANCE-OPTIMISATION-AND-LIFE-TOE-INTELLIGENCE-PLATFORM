@@ -1,0 +1,21 @@
+:root {
+  --primary: #a04420;
+  --ink: #233746;
+  --rail: #253c50;
+  --background: #e6e9ec;
+  --surface: #f8f9fa;
+  --mint: #d9e1e8;
+  --accent: #efad7d;
+  --muted: #52616d;
+  --border: #bdc8d0;
+  --danger: #a52d35;
+  --warning: #77521e;
+  --focus: #236fa0;
+  --body: 'Segoe UI', 'Arial', sans-serif;
+  --display: 'Bahnschrift', 'Arial Narrow', sans-serif;
+  --mono: 'Consolas', 'Cascadia Mono', monospace;
+  --radius: 4px;
+  --control-radius: 3px;
+  --section-gap: 22px;
+  --page-max: 1440px;
+}

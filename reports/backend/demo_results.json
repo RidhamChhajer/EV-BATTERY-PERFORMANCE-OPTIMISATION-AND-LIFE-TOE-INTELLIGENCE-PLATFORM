@@ -1,0 +1,222 @@
+{
+  "soh": {
+    "status": "ok",
+    "soh_reference_pct": 88.88099202113199,
+    "scope": "CALCE LCO laboratory prototype; relative to first recorded capacity"
+  },
+  "rul": {
+    "status": "ok",
+    "remaining_observed_cycles": 362.3168997916387,
+    "raw_prediction": 362.3168997916387,
+    "nonnegative_floor_applied": false,
+    "unit": "recorded cycle groups to three-observation confirmation of 80% reference SOH",
+    "health_source": "measured",
+    "scope": "CALCE LCO development prototype; excludes EV years/km"
+  },
+  "charging": {
+    "status": "ok",
+    "selection": "observed_mean",
+    "recommendation": {
+      "protocol_id": "protocol_04",
+      "c1": 5.2,
+      "c2": 5.2,
+      "c3": 4.8,
+      "c4": 4.160000000000002,
+      "replicate_cells": 5,
+      "observed_mean_life_cycles": 911.6,
+      "observed_std_life_cycles": 149.90430280682403,
+      "observed_min_life_cycles": 775.0,
+      "observed_max_life_cycles": 1166.0,
+      "predicted_life_cycles": 890.7711323779849
+    },
+    "feasible_protocols": [
+      {
+        "protocol_id": "protocol_04",
+        "c1": 5.2,
+        "c2": 5.2,
+        "c3": 4.8,
+        "c4": 4.160000000000002,
+        "replicate_cells": 5,
+        "observed_mean_life_cycles": 911.6,
+        "observed_std_life_cycles": 149.90430280682403,
+        "observed_min_life_cycles": 775.0,
+        "observed_max_life_cycles": 1166.0,
+        "predicted_life_cycles": 890.7711323779849
+      },
+      {
+        "protocol_id": "protocol_03",
+        "c1": 4.8,
+        "c2": 5.2,
+        "c3": 5.2,
+        "c4": 4.160000000000002,
+        "replicate_cells": 5,
+        "observed_mean_life_cycles": 890.0,
+        "observed_std_life_cycles": 114.42683251755246,
+        "observed_min_life_cycles": 774.0,
+        "observed_max_life_cycles": 1082.0,
+        "predicted_life_cycles": 877.1407455725388
+      },
+      {
+        "protocol_id": "protocol_02",
+        "c1": 4.4,
+        "c2": 5.6,
+        "c3": 5.2,
+        "c4": 4.25203539823009,
+        "replicate_cells": 5,
+        "observed_mean_life_cycles": 884.2,
+        "observed_std_life_cycles": 168.87480569937009,
+        "observed_min_life_cycles": 678.0,
+        "observed_max_life_cycles": 1089.0,
+        "predicted_life_cycles": 844.0197954826388
+      },
+      {
+        "protocol_id": "protocol_05",
+        "c1": 6.0,
+        "c2": 5.6,
+        "c3": 4.4,
+        "c4": 3.8340248962655616,
+        "replicate_cells": 5,
+        "observed_mean_life_cycles": 880.4,
+        "observed_std_life_cycles": 108.66830264617185,
+        "observed_min_life_cycles": 772.0,
+        "observed_max_life_cycles": 1039.0,
+        "predicted_life_cycles": 876.7275319604288
+      },
+      {
+        "protocol_id": "protocol_01",
+        "c1": 3.6,
+        "c2": 6.0,
+        "c3": 5.6,
+        "c4": 4.754716981132077,
+        "replicate_cells": 5,
+        "observed_mean_life_cycles": 755.0,
+        "observed_std_life_cycles": 103.26422420180185,
+        "observed_min_life_cycles": 616.0,
+        "observed_max_life_cycles": 907.0,
+        "predicted_life_cycles": 806.2570108024067
+      }
+    ],
+    "stage_soc_windows_pct": [
+      [
+        0,
+        20
+      ],
+      [
+        20,
+        40
+      ],
+      [
+        40,
+        60
+      ],
+      [
+        60,
+        80
+      ]
+    ],
+    "stage_minutes": [
+      2.3076923076923075,
+      2.3076923076923075,
+      2.5,
+      2.8846153846153832
+    ],
+    "study_conditions": {
+      "cell": "A123 APR18650M1A LFP/graphite",
+      "nominal_capacity_ah": 1.1,
+      "ambient_temperature_c": 30,
+      "upper_voltage_v": 3.6,
+      "fixed_tail": "After 0\u201380% and a five-second rest, 1C CC-CV to 100% at 3.6 V with C/20 cutoff; study discharge was 4C."
+    },
+    "scope": "Attia 2020 study LFP cells and fixed 0\u201380% ten-minute protocol only; not CALCE LCO or an EV controller",
+    "limitations": [
+      "All candidates share the same nominal ten-minute 0\u201380% charge; this does not optimise charging time.",
+      "Observed means are retrospective on five cells per protocol; their ranking is not a prospective guarantee.",
+      "No personalised lifetime gain, temperature prediction, voltage validation or pack-level safety claim."
+    ]
+  },
+  "assess": {
+    "soh": {
+      "status": "ok",
+      "soh_reference_pct": 88.88099202113199,
+      "scope": "CALCE LCO laboratory prototype; relative to first recorded capacity"
+    },
+    "rul": {
+      "status": "ok",
+      "remaining_observed_cycles": 354.9192853974043,
+      "raw_prediction": 354.9192853974043,
+      "nonnegative_floor_applied": false,
+      "unit": "recorded cycle groups to three-observation confirmation of 80% reference SOH",
+      "health_source": "predicted",
+      "scope": "CALCE LCO development prototype; excludes EV years/km"
+    }
+  },
+  "soc": {
+    "status": "ok",
+    "soc_pct": 85.39806146995197,
+    "raw_soc_pct": 85.39806146995197,
+    "physical_bounds_applied": false,
+    "method": "calibrated_coulomb_tracking",
+    "reference": "Vehicle-reported BMS SOC; assumes a correct SOC seed at the first observation",
+    "initial_soc_pct": 86.9,
+    "protocol": "TUM_BMW_I3"
+  },
+  "driving": {
+    "status": "ok",
+    "predictions": {
+      "next_60s": {
+        "status": "ok",
+        "value": 56.43798790889745,
+        "unit": "Wh",
+        "method": "ml",
+        "regenerative_energy_retained": true
+      },
+      "next_km": {
+        "status": "ok",
+        "value": 153.91366184818227,
+        "unit": "Wh/km",
+        "method": "ml",
+        "regenerative_energy_retained": true
+      }
+    },
+    "scope": "BMW i3 source-vehicle telemetry; positive energy = net consumption, negative energy = net recovery"
+  },
+  "vehicle": {
+    "soc": {
+      "status": "ok",
+      "soc_pct": 85.39806146995197,
+      "raw_soc_pct": 85.39806146995197,
+      "physical_bounds_applied": false,
+      "method": "calibrated_coulomb_tracking",
+      "reference": "Vehicle-reported BMS SOC; assumes a correct SOC seed at the first observation",
+      "initial_soc_pct": 86.9,
+      "protocol": "TUM_BMW_I3"
+    },
+    "driving": {
+      "status": "ok",
+      "predictions": {
+        "next_60s": {
+          "status": "ok",
+          "value": 56.43798790889745,
+          "unit": "Wh",
+          "method": "ml",
+          "regenerative_energy_retained": true
+        },
+        "next_km": {
+          "status": "ok",
+          "value": 153.91366184818227,
+          "unit": "Wh/km",
+          "method": "ml",
+          "regenerative_energy_retained": true
+        }
+      },
+      "scope": "BMW i3 source-vehicle telemetry; positive energy = net consumption, negative energy = net recovery"
+    },
+    "range": {
+      "status": "ok",
+      "estimated_range_km": 103.07675887688899,
+      "available_energy_above_reserve_kwh": 15.864921410184111,
+      "usable_soc_pct": 94.38787984140484,
+      "assumption": "Recent driving conditions and predicted per-km consumption continue; configured usable capacity and SOC window are correct."
+    }
+  }
+}

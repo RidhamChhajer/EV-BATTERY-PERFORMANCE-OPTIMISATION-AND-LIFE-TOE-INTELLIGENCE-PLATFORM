@@ -1,0 +1,44 @@
+{
+  "prediction_time": "After current charge, before current discharge capacity is measured",
+  "target": "target_soh_reference_pct",
+  "primary_features": [
+    "observed_cycle_number",
+    "elapsed_days",
+    "previous_soh_reference_pct",
+    "previous_capacity_age_observed_cycles",
+    "charge_voltage_mean_v",
+    "charge_current_mean_a",
+    "charge_duration_approx_s"
+  ],
+  "without_historical_capacity_features": [
+    "observed_cycle_number",
+    "elapsed_days",
+    "charge_voltage_mean_v",
+    "charge_current_mean_a",
+    "charge_duration_approx_s"
+  ],
+  "baseline": "Use previous_soh_reference_pct as the prediction",
+  "availability": {
+    "observed_cycle_number": "Requires recorded operating history; counts observed groups, not guaranteed physical cycles",
+    "elapsed_days": "Days from first recorded test; available from timestamps, not factory age",
+    "previous_soh_reference_pct": "Requires a previous completed capacity measurement and recorded reference; not automatically available from voltage/current alone",
+    "previous_capacity_age_observed_cycles": "Recorded cycle groups since the last valid capacity measurement; known before prediction",
+    "charge_voltage_mean_v": "Recorded current charging session; sample-weighted mean",
+    "charge_current_mean_a": "Recorded current charging session; sample-weighted mean",
+    "charge_duration_approx_s": "Recorded current charging session; approximate sampled duration"
+  },
+  "excluded_columns": {
+    "cell_id": "Identity/provenance only",
+    "split": "Evaluation membership only",
+    "nominal_capacity_ah": "Constant 1.1 Ah in this experiment",
+    "previous_capacity_ah": "Redundant with prior relative SOH and reference capacity",
+    "reference_capacity_ah": "Used to define relative health; omitted as a cell-constant predictor",
+    "charge_voltage_max_v": "Controlled upper-voltage limit; little independent variation",
+    "charge_current_max_a": "Transient maximum; omit from initial simple feature set",
+    "discharge_c_rate": "Future discharge protocol; use for coverage reporting, not as an input unless known in advance",
+    "delivered_capacity_ah": "Current discharge capacity directly defines the target",
+    "soh_reference_pct": "Current health target, not a same-cycle predictor",
+    "threshold_80_observed": "Uses future observations",
+    "remaining_observed_cycles_to_80pct": "Future life target, not an SOH predictor"
+  }
+}

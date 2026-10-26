@@ -1,0 +1,5 @@
+{
+  "protocol": "ATTIA2020_LFP_10MIN",
+  "max_c_rate": 6,
+  "selection": "observed_mean"
+}

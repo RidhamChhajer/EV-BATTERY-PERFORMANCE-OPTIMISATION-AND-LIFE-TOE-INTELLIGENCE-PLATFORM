@@ -1,0 +1,244 @@
+{
+  "status": "complete",
+  "original_examples": 5387,
+  "supported_examples": 5210,
+  "coverage_pct": 96.71431223315389,
+  "selected": {
+    "model": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    },
+    "feature_set": "combined",
+    "features": [
+      "observed_cycle_number",
+      "elapsed_days",
+      "charge_voltage_mean_v",
+      "charge_current_mean_a",
+      "charge_duration_approx_s",
+      "window_low_charge_ratio",
+      "window_high_charge_ratio",
+      "cc_start_voltage_v"
+    ],
+    "macro_cell_mae_pp": 0.92465476826333
+  },
+  "candidate_ranking": [
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 1.0
+      },
+      "feature_set": "session",
+      "features": [
+        "observed_cycle_number",
+        "elapsed_days",
+        "charge_voltage_mean_v",
+        "charge_current_mean_a",
+        "charge_duration_approx_s"
+      ],
+      "macro_cell_mae_pp": 1.1161002287277753
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "feature_set": "session",
+      "features": [
+        "observed_cycle_number",
+        "elapsed_days",
+        "charge_voltage_mean_v",
+        "charge_current_mean_a",
+        "charge_duration_approx_s"
+      ],
+      "macro_cell_mae_pp": 1.124200550067226
+    },
+    {
+      "model": "random_forest",
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 4,
+        "min_samples_leaf": 20
+      },
+      "feature_set": "session",
+      "features": [
+        "observed_cycle_number",
+        "elapsed_days",
+        "charge_voltage_mean_v",
+        "charge_current_mean_a",
+        "charge_duration_approx_s"
+      ],
+      "macro_cell_mae_pp": 2.209450832002481
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 1.0
+      },
+      "feature_set": "window",
+      "features": [
+        "window_low_charge_ratio",
+        "window_high_charge_ratio",
+        "elapsed_days",
+        "observed_cycle_number"
+      ],
+      "macro_cell_mae_pp": 4.429124623473258
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "feature_set": "window",
+      "features": [
+        "window_low_charge_ratio",
+        "window_high_charge_ratio",
+        "elapsed_days",
+        "observed_cycle_number"
+      ],
+      "macro_cell_mae_pp": 4.324054561120939
+    },
+    {
+      "model": "random_forest",
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 4,
+        "min_samples_leaf": 20
+      },
+      "feature_set": "window",
+      "features": [
+        "window_low_charge_ratio",
+        "window_high_charge_ratio",
+        "elapsed_days",
+        "observed_cycle_number"
+      ],
+      "macro_cell_mae_pp": 2.499984788189979
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 1.0
+      },
+      "feature_set": "combined",
+      "features": [
+        "observed_cycle_number",
+        "elapsed_days",
+        "charge_voltage_mean_v",
+        "charge_current_mean_a",
+        "charge_duration_approx_s",
+        "window_low_charge_ratio",
+        "window_high_charge_ratio",
+        "cc_start_voltage_v"
+      ],
+      "macro_cell_mae_pp": 0.9628237447253761
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "feature_set": "combined",
+      "features": [
+        "observed_cycle_number",
+        "elapsed_days",
+        "charge_voltage_mean_v",
+        "charge_current_mean_a",
+        "charge_duration_approx_s",
+        "window_low_charge_ratio",
+        "window_high_charge_ratio",
+        "cc_start_voltage_v"
+      ],
+      "macro_cell_mae_pp": 0.92465476826333
+    },
+    {
+      "model": "random_forest",
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 4,
+        "min_samples_leaf": 20
+      },
+      "feature_set": "combined",
+      "features": [
+        "observed_cycle_number",
+        "elapsed_days",
+        "charge_voltage_mean_v",
+        "charge_current_mean_a",
+        "charge_duration_approx_s",
+        "window_low_charge_ratio",
+        "window_high_charge_ratio",
+        "cc_start_voltage_v"
+      ],
+      "macro_cell_mae_pp": 2.0767704401054305
+    }
+  ],
+  "evaluation_status": "Development cross-validation: all six cells were previously inspected, so this is not an untouched test.",
+  "final_training": "All supported examples from all six current batteries",
+  "guard": "Abstain if the current charge does not cover the measured 4.0-4.1 V CC window or has inadequate sampling. Initial charge reference required only for window features. Runtime also rejects features outside fitted training ranges.",
+  "references": {
+    "CS2_33": {
+      "reference_observed_cycle": 1,
+      "status": "ok",
+      "cc_start_voltage_v": 3.494267463684082,
+      "window_low_charge_ah": 0.13270780595466747,
+      "window_high_charge_ah": 0.10103245259081217,
+      "window_duration_s": 1529.972649877408,
+      "window_max_interval_s": 10.017873914217489
+    },
+    "CS2_34": {
+      "reference_observed_cycle": 1,
+      "status": "ok",
+      "cc_start_voltage_v": 3.461806535720825,
+      "window_low_charge_ah": 0.1359025514661264,
+      "window_high_charge_ah": 0.12369335063013753,
+      "window_duration_s": 1697.5508194673585,
+      "window_max_interval_s": 10.01783282681481
+    },
+    "CS2_35": {
+      "reference_observed_cycle": 1,
+      "status": "ok",
+      "cc_start_voltage_v": 3.5223231315612797,
+      "window_low_charge_ah": 0.13130433605681158,
+      "window_high_charge_ah": 0.09981367089257953,
+      "window_duration_s": 1512.3131066605592,
+      "window_max_interval_s": 10.017974033746214
+    },
+    "CS2_36": {
+      "reference_observed_cycle": 1,
+      "status": "ok",
+      "cc_start_voltage_v": 3.483964204788208,
+      "window_low_charge_ah": 0.1303907798980869,
+      "window_high_charge_ah": 0.09898723651368768,
+      "window_duration_s": 1501.314412596642,
+      "window_max_interval_s": 10.018048278787319
+    },
+    "CS2_37": {
+      "reference_observed_cycle": 1,
+      "status": "ok",
+      "cc_start_voltage_v": 3.519925117492676,
+      "window_low_charge_ah": 0.13089040012873776,
+      "window_high_charge_ah": 0.1003106817824101,
+      "window_duration_s": 1513.5353764934198,
+      "window_max_interval_s": 10.017956334633709
+    },
+    "CS2_38": {
+      "reference_observed_cycle": 1,
+      "status": "ok",
+      "cc_start_voltage_v": 3.4858510494232178,
+      "window_low_charge_ah": 0.13189434489702234,
+      "window_high_charge_ah": 0.10269457785533864,
+      "window_duration_s": 1535.3244403613753,
+      "window_max_interval_s": 10.017956424859221
+    }
+  },
+  "features": [
+    "observed_cycle_number",
+    "elapsed_days",
+    "charge_voltage_mean_v",
+    "charge_current_mean_a",
+    "charge_duration_approx_s",
+    "window_low_charge_ratio",
+    "window_high_charge_ratio",
+    "cc_start_voltage_v"
+  ],
+  "runtime_cv_examples": 4412,
+  "runtime_cv_coverage_pct": 81.90087247076295
+}

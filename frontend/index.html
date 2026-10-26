@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#253c50">
+  <meta name="description" content="Explain battery prediction through real recorded examples. Inspect inputs, methods, results and evaluation evidence.">
+  <title>Project guide · Cellwise</title>
+  <link rel="icon" href="assets/battery.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <div class="app-shell">
+    <header class="masthead">
+      <a class="brand" href="#guide" aria-label="Cellwise project guide"><span class="brand-mark" aria-hidden="true">c<span>+</span></span><span>cellwise<small>BATTERY RESEARCH EXPLAINED</small></span></a>
+      <div class="connection"><span class="connection-dot" id="connection-dot"></span><div><strong id="connection-label">Connecting to API</strong><small id="connection-detail">Local research backend</small></div><button id="reconnect" class="icon-button" aria-label="Retry API connection" title="Retry API connection" disabled>↻</button></div>
+    </header>
+    <nav aria-label="Workspace navigation" id="navigation"></nav>
+    <div class="main-shell">
+      <div class="topbar"><span>EV BATTERY PROJECT <span aria-hidden="true">/</span> <span id="crumb">Vehicle analysis</span></span><span>LOCAL RESEARCH ENVIRONMENT</span></div>
+      <main id="workspace" tabindex="-1"></main>
+      <footer class="page-footer"><strong>cellwise / research edition</strong><span>Source-specific models · Estimates depend on study conditions</span></footer>
+    </div>
+  </div>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

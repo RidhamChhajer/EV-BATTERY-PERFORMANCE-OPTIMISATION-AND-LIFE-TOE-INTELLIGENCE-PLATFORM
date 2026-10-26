@@ -1,0 +1,615 @@
+{
+  "protocol": "TUM_BMW_I3",
+  "observations": [
+    {
+      "time_s": 240.0,
+      "voltage_v": 388.8,
+      "current_a": -20.15,
+      "temperature_c": 22.0,
+      "speed_kmh": 22.86,
+      "ambient_temperature_c": 30.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 241.0,
+      "voltage_v": 392.21,
+      "current_a": 23.08,
+      "temperature_c": 22.0,
+      "speed_kmh": 21.48,
+      "ambient_temperature_c": 30.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 242.0,
+      "voltage_v": 391.87,
+      "current_a": 16.28,
+      "temperature_c": 22.0,
+      "speed_kmh": 15.44,
+      "ambient_temperature_c": 30.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 243.0,
+      "voltage_v": 391.14,
+      "current_a": 6.52,
+      "temperature_c": 22.0,
+      "speed_kmh": 9.53,
+      "ambient_temperature_c": 30.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 244.0,
+      "voltage_v": 390.27,
+      "current_a": -4.3,
+      "temperature_c": 22.0,
+      "speed_kmh": 3.2,
+      "ambient_temperature_c": 30.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 245.0,
+      "voltage_v": 390.0,
+      "current_a": -6.2,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.32,
+      "ambient_temperature_c": 30.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 246.0,
+      "voltage_v": 390.1,
+      "current_a": -5.8,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.04,
+      "ambient_temperature_c": 30.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 247.0,
+      "voltage_v": 389.94,
+      "current_a": -6.96,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 248.0,
+      "voltage_v": 389.9,
+      "current_a": -8.1,
+      "temperature_c": 22.0,
+      "speed_kmh": 1.56,
+      "ambient_temperature_c": 30.19,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 249.0,
+      "voltage_v": 390.0,
+      "current_a": -6.31,
+      "temperature_c": 22.0,
+      "speed_kmh": 2.59,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 250.0,
+      "voltage_v": 390.0,
+      "current_a": -5.86,
+      "temperature_c": 22.0,
+      "speed_kmh": 2.29,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 251.0,
+      "voltage_v": 390.0,
+      "current_a": -5.84,
+      "temperature_c": 22.0,
+      "speed_kmh": 1.93,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 252.0,
+      "voltage_v": 390.0,
+      "current_a": -5.96,
+      "temperature_c": 22.0,
+      "speed_kmh": 1.33,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 253.0,
+      "voltage_v": 390.0,
+      "current_a": -5.67,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.17,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 254.0,
+      "voltage_v": 390.0,
+      "current_a": -5.5,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 255.0,
+      "voltage_v": 390.0,
+      "current_a": -5.46,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 256.0,
+      "voltage_v": 390.0,
+      "current_a": -5.5,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 257.0,
+      "voltage_v": 390.0,
+      "current_a": -5.4,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 258.0,
+      "voltage_v": 390.0,
+      "current_a": -5.44,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 259.0,
+      "voltage_v": 390.0,
+      "current_a": -5.5,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 260.0,
+      "voltage_v": 390.0,
+      "current_a": -5.5,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 261.0,
+      "voltage_v": 390.0,
+      "current_a": -5.4,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 262.0,
+      "voltage_v": 390.0,
+      "current_a": -5.44,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 263.0,
+      "voltage_v": 390.0,
+      "current_a": -5.44,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 264.0,
+      "voltage_v": 390.0,
+      "current_a": -5.44,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 265.0,
+      "voltage_v": 390.0,
+      "current_a": -5.4,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 266.0,
+      "voltage_v": 390.0,
+      "current_a": -5.53,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 267.0,
+      "voltage_v": 390.0,
+      "current_a": -5.5,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 268.0,
+      "voltage_v": 390.0,
+      "current_a": -5.44,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.5,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 269.0,
+      "voltage_v": 390.0,
+      "current_a": -5.4,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 30.68,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 270.0,
+      "voltage_v": 390.0,
+      "current_a": -5.4,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 271.0,
+      "voltage_v": 390.0,
+      "current_a": -5.66,
+      "temperature_c": 22.0,
+      "speed_kmh": 0.0,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 272.0,
+      "voltage_v": 389.64,
+      "current_a": -10.58,
+      "temperature_c": 22.0,
+      "speed_kmh": 2.0,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 273.0,
+      "voltage_v": 389.34,
+      "current_a": -13.6,
+      "temperature_c": 22.0,
+      "speed_kmh": 5.38,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 274.0,
+      "voltage_v": 388.6,
+      "current_a": -22.26,
+      "temperature_c": 22.0,
+      "speed_kmh": 9.29,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 275.0,
+      "voltage_v": 387.17,
+      "current_a": -39.6,
+      "temperature_c": 22.0,
+      "speed_kmh": 14.12,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 276.0,
+      "voltage_v": 386.54,
+      "current_a": -45.91,
+      "temperature_c": 22.0,
+      "speed_kmh": 19.72,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 277.0,
+      "voltage_v": 386.5,
+      "current_a": -44.72,
+      "temperature_c": 22.0,
+      "speed_kmh": 24.35,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 278.0,
+      "voltage_v": 387.88,
+      "current_a": -25.89,
+      "temperature_c": 22.0,
+      "speed_kmh": 27.57,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 279.0,
+      "voltage_v": 390.05,
+      "current_a": 0.19,
+      "temperature_c": 22.0,
+      "speed_kmh": 28.08,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 280.0,
+      "voltage_v": 391.81,
+      "current_a": 21.05,
+      "temperature_c": 22.0,
+      "speed_kmh": 25.56,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 281.0,
+      "voltage_v": 389.94,
+      "current_a": -4.39,
+      "temperature_c": 22.0,
+      "speed_kmh": 23.27,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 282.0,
+      "voltage_v": 389.4,
+      "current_a": -10.21,
+      "temperature_c": 22.0,
+      "speed_kmh": 23.28,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 283.0,
+      "voltage_v": 391.69,
+      "current_a": 16.8,
+      "temperature_c": 22.0,
+      "speed_kmh": 20.62,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 284.0,
+      "voltage_v": 389.84,
+      "current_a": -5.87,
+      "temperature_c": 22.0,
+      "speed_kmh": 19.29,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 574.0
+    },
+    {
+      "time_s": 285.0,
+      "voltage_v": 388.98,
+      "current_a": -16.71,
+      "temperature_c": 22.0,
+      "speed_kmh": 19.82,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.95
+    },
+    {
+      "time_s": 286.0,
+      "voltage_v": 386.48,
+      "current_a": -46.11,
+      "temperature_c": 22.0,
+      "speed_kmh": 24.3,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.9
+    },
+    {
+      "time_s": 287.0,
+      "voltage_v": 389.26,
+      "current_a": -10.04,
+      "temperature_c": 22.0,
+      "speed_kmh": 26.55,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.85
+    },
+    {
+      "time_s": 288.0,
+      "voltage_v": 388.94,
+      "current_a": -14.95,
+      "temperature_c": 22.0,
+      "speed_kmh": 27.37,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 5.52,
+      "elevation_m": 573.79
+    },
+    {
+      "time_s": 289.0,
+      "voltage_v": 389.14,
+      "current_a": -12.51,
+      "temperature_c": 22.0,
+      "speed_kmh": 28.34,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.74
+    },
+    {
+      "time_s": 290.0,
+      "voltage_v": 387.11,
+      "current_a": -38.64,
+      "temperature_c": 22.0,
+      "speed_kmh": 29.67,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.69
+    },
+    {
+      "time_s": 291.0,
+      "voltage_v": 384.2,
+      "current_a": -71.99,
+      "temperature_c": 22.0,
+      "speed_kmh": 34.63,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.63
+    },
+    {
+      "time_s": 292.0,
+      "voltage_v": 387.72,
+      "current_a": -25.2,
+      "temperature_c": 22.0,
+      "speed_kmh": 38.05,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.58
+    },
+    {
+      "time_s": 293.0,
+      "voltage_v": 388.86,
+      "current_a": -11.99,
+      "temperature_c": 22.0,
+      "speed_kmh": 38.68,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.53
+    },
+    {
+      "time_s": 294.0,
+      "voltage_v": 389.3,
+      "current_a": -6.59,
+      "temperature_c": 22.0,
+      "speed_kmh": 38.83,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.47
+    },
+    {
+      "time_s": 295.0,
+      "voltage_v": 389.0,
+      "current_a": -11.15,
+      "temperature_c": 22.0,
+      "speed_kmh": 38.72,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.42
+    },
+    {
+      "time_s": 296.0,
+      "voltage_v": 389.1,
+      "current_a": -10.43,
+      "temperature_c": 22.0,
+      "speed_kmh": 38.87,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.37
+    },
+    {
+      "time_s": 297.0,
+      "voltage_v": 388.84,
+      "current_a": -13.8,
+      "temperature_c": 22.0,
+      "speed_kmh": 39.12,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.31
+    },
+    {
+      "time_s": 298.0,
+      "voltage_v": 388.3,
+      "current_a": -20.31,
+      "temperature_c": 22.0,
+      "speed_kmh": 39.48,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.26
+    },
+    {
+      "time_s": 299.0,
+      "voltage_v": 388.56,
+      "current_a": -16.56,
+      "temperature_c": 22.0,
+      "speed_kmh": 40.42,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.21
+    },
+    {
+      "time_s": 300.0,
+      "voltage_v": 388.5,
+      "current_a": -16.81,
+      "temperature_c": 22.0,
+      "speed_kmh": 40.76,
+      "ambient_temperature_c": 31.0,
+      "heating_power_kw": 0.0,
+      "elevation_m": 573.16
+    }
+  ]
+}

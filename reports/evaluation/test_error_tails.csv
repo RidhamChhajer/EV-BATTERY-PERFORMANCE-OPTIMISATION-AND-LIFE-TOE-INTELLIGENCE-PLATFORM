@@ -1,0 +1,3 @@
+feature_variant,model,n,median_absolute_error_pp,p95_absolute_error_pp,p99_absolute_error_pp,max_absolute_error_pp,errors_over_5pp,errors_over_10pp
+with_history,persistence,993,0.1861338544158997,1.116148435663979,2.0421075931764805,4.09694851852953,0,0
+without_history,ridge,993,1.3607163686520425,2.9201628256621546,5.025345250508168,63.71089614474968,11,7

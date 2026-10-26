@@ -1,0 +1,43 @@
+{
+  "status": "complete",
+  "examples": 3081,
+  "batteries": 6,
+  "selected": {
+    "model": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    },
+    "macro_cell_mae_cycles": 31.902840400476435
+  },
+  "candidate_ranking": [
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "macro_cell_mae_cycles": 31.902840400476435
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 100.0
+      },
+      "macro_cell_mae_cycles": 32.39715711808241
+    },
+    {
+      "model": "random_forest",
+      "parameters": {
+        "n_estimators": 120,
+        "max_depth": 6,
+        "min_samples_leaf": 15,
+        "n_jobs": 1
+      },
+      "macro_cell_mae_cycles": 33.4229710085991
+    }
+  ],
+  "censored_cells": 0,
+  "negative_predictions_floored": 48,
+  "evaluation": "Nested development CV; all six batteries previously inspected",
+  "prediction_time": "After latest SOH observation; all rolling features past-only",
+  "target": "remaining_observed_cycles"
+}

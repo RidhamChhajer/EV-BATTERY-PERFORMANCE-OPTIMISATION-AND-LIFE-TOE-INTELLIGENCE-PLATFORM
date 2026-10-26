@@ -1,0 +1,44 @@
+{
+  "status": "complete",
+  "protocols": 9,
+  "replicate_cells": 45,
+  "selected": {
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 100,
+      "max_depth": 3,
+      "min_samples_leaf": 5,
+      "n_jobs": 1
+    },
+    "mean_protocol_mae_cycles": 94.57900347848077
+  },
+  "candidate_ranking": [
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 1.0
+      },
+      "mean_protocol_mae_cycles": 106.29586031318337
+    },
+    {
+      "model": "ridge",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "mean_protocol_mae_cycles": 124.41647777199495
+    },
+    {
+      "model": "random_forest",
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 3,
+        "min_samples_leaf": 5,
+        "n_jobs": 1
+      },
+      "mean_protocol_mae_cycles": 94.57900347848077
+    }
+  ],
+  "recommendation_default": "Rank measured protocol means under a C-rate limit; ML predictions optional",
+  "evaluation": "Nested leave-one-protocol-out development CV on nine protocols",
+  "independent_ev_validation": false
+}

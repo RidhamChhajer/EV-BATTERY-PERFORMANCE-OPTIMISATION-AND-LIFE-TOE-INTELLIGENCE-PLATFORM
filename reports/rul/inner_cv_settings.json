@@ -1,0 +1,164 @@
+[
+  {
+    "outer_held_cell": "CS2_33",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    },
+    "macro_cell_mae_cycles": 34.501847152777415
+  },
+  {
+    "outer_held_cell": "CS2_33",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 100.0
+    },
+    "macro_cell_mae_cycles": 36.159974076414834
+  },
+  {
+    "outer_held_cell": "CS2_33",
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 120,
+      "max_depth": 6,
+      "min_samples_leaf": 15,
+      "n_jobs": 1
+    },
+    "macro_cell_mae_cycles": 36.969330642111814
+  },
+  {
+    "outer_held_cell": "CS2_34",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    },
+    "macro_cell_mae_cycles": 39.44120701712327
+  },
+  {
+    "outer_held_cell": "CS2_34",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 100.0
+    },
+    "macro_cell_mae_cycles": 40.6389782719979
+  },
+  {
+    "outer_held_cell": "CS2_34",
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 120,
+      "max_depth": 6,
+      "min_samples_leaf": 15,
+      "n_jobs": 1
+    },
+    "macro_cell_mae_cycles": 37.22136454291681
+  },
+  {
+    "outer_held_cell": "CS2_35",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    },
+    "macro_cell_mae_cycles": 42.66888471260749
+  },
+  {
+    "outer_held_cell": "CS2_35",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 100.0
+    },
+    "macro_cell_mae_cycles": 41.29328777323957
+  },
+  {
+    "outer_held_cell": "CS2_35",
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 120,
+      "max_depth": 6,
+      "min_samples_leaf": 15,
+      "n_jobs": 1
+    },
+    "macro_cell_mae_cycles": 31.14368486641187
+  },
+  {
+    "outer_held_cell": "CS2_36",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    },
+    "macro_cell_mae_cycles": 23.507474734257425
+  },
+  {
+    "outer_held_cell": "CS2_36",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 100.0
+    },
+    "macro_cell_mae_cycles": 22.471814147368757
+  },
+  {
+    "outer_held_cell": "CS2_36",
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 120,
+      "max_depth": 6,
+      "min_samples_leaf": 15,
+      "n_jobs": 1
+    },
+    "macro_cell_mae_cycles": 26.62929466749364
+  },
+  {
+    "outer_held_cell": "CS2_37",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    },
+    "macro_cell_mae_cycles": 38.7134797644495
+  },
+  {
+    "outer_held_cell": "CS2_37",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 100.0
+    },
+    "macro_cell_mae_cycles": 38.23532866683
+  },
+  {
+    "outer_held_cell": "CS2_37",
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 120,
+      "max_depth": 6,
+      "min_samples_leaf": 15,
+      "n_jobs": 1
+    },
+    "macro_cell_mae_cycles": 43.2281992798722
+  },
+  {
+    "outer_held_cell": "CS2_38",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 10.0
+    },
+    "macro_cell_mae_cycles": 29.582322624858524
+  },
+  {
+    "outer_held_cell": "CS2_38",
+    "model": "ridge",
+    "parameters": {
+      "alpha": 100.0
+    },
+    "macro_cell_mae_cycles": 31.95839721476393
+  },
+  {
+    "outer_held_cell": "CS2_38",
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 120,
+      "max_depth": 6,
+      "min_samples_leaf": 15,
+      "n_jobs": 1
+    },
+    "macro_cell_mae_cycles": 33.55833739865069
+  }
+]

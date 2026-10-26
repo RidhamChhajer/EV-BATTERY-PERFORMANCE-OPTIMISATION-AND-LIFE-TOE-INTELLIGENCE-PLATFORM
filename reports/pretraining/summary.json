@@ -1,0 +1,18 @@
+{
+  "test_battery_included": false,
+  "training_cells": 4,
+  "validation_cells": 1,
+  "training_examples": 3636,
+  "validation_examples": 758,
+  "missing_candidate_input_values": 0,
+  "capacity_changes_over_5pp": 1,
+  "cycles_with_active_sampling_gap_over_300s": 4416,
+  "cycles_with_charge_sampling_gap_over_300s": 4416,
+  "cycles_with_unexplained_active_sampling_gap_over_300s": 0,
+  "cv_taper_long_intervals": 13149,
+  "charge_completion_not_verified_cycles": 142,
+  "examples_using_capacity_older_than_one_recorded_cycle": 149,
+  "inter_cycle_gaps_over_24h": 55,
+  "statistical_outliers_deleted": 0,
+  "data_imputed": false
+}

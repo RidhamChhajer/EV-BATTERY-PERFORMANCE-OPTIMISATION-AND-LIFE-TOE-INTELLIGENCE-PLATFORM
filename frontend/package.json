@@ -1,0 +1,11 @@
+{
+  "name": "cellwise-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/core.test.mjs",
+    "test:e2e": "node tests/browser.mjs"
+  },
+  "devDependencies": { "playwright": "^1.58.0", "axe-core": "^4.11.0" }
+}

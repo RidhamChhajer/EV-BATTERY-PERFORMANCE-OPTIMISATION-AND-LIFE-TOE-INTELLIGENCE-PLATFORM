@@ -1,0 +1,129 @@
+{
+  "status": "verified",
+  "python": "3.10.11",
+  "dependencies": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "scikit_learn": "1.7.2",
+    "joblib": "1.5.3"
+  },
+  "original_snapshot": "models/backups/python312_original.zip",
+  "tests_passed": 32,
+  "checks": [
+    "Full sequential model rebuild and API verification passed",
+    "Telemetry selections unchanged",
+    "Held telemetry sample keys and reference targets unchanged",
+    "All four PL MATLAB source row counts match original audit",
+    "NMC calibration workbook has original 26322 rows",
+    "Python 3.10 streaming SHA-256 verified",
+    "pip check passed"
+  ],
+  "comparisons": [
+    {
+      "component": "soh",
+      "cohort": {
+        "recipe": "guarded_selected_model"
+      },
+      "n": 4412,
+      "metric": "mae_pp",
+      "previous": 1.0173988434500425,
+      "python310": 1.0173988434500438,
+      "change_percent": 1.3322676295501878e-13
+    },
+    {
+      "component": "rul",
+      "cohort": {
+        "recipe": "selected_model_measured_soh",
+        "cohort": "all available"
+      },
+      "n": 3081,
+      "metric": "mae_cycles",
+      "previous": 37.227135261855146,
+      "python310": 37.22838370401321,
+      "change_percent": 0.0033535810620044515
+    },
+    {
+      "component": "charging",
+      "cohort": {
+        "recipe": "selected_surrogate"
+      },
+      "n": 45,
+      "metric": "mae_cycles",
+      "previous": 112.55723295544573,
+      "python310": 112.7734486125039,
+      "change_percent": 0.19209396977959425
+    },
+    {
+      "component": "soc_calce",
+      "cohort": {
+        "recipe": "selected_soc",
+        "split": "test",
+        "cohort": "all eligible"
+      },
+      "n": 17937,
+      "metric": "mae",
+      "previous": 0.668127198786271,
+      "python310": 0.6673773448324135,
+      "change_percent": -0.11223221494645053
+    },
+    {
+      "component": "soc_vehicle",
+      "cohort": {
+        "recipe": "selected_soc",
+        "split": "test",
+        "cohort": "all eligible"
+      },
+      "n": 26153,
+      "metric": "mae",
+      "previous": 4.270619961530819,
+      "python310": 4.2706199615308345,
+      "change_percent": 3.552713678800501e-13
+    },
+    {
+      "component": "soc_tracking",
+      "cohort": {
+        "recipe": "calibrated_tracking",
+        "split": "test"
+      },
+      "n": 5235,
+      "metric": "mae",
+      "previous": 0.098260542037217,
+      "python310": 0.098260542037217,
+      "change_percent": 0.0
+    },
+    {
+      "component": "driving_next_60s",
+      "cohort": {
+        "recipe": "selected_strategy",
+        "target": "next_60s",
+        "split": "test",
+        "cohort": "all eligible"
+      },
+      "n": 2342,
+      "metric": "mae",
+      "previous": 67.74158858562579,
+      "python310": 66.76690185501745,
+      "change_percent": -1.4388306370706538
+    },
+    {
+      "component": "driving_next_km",
+      "cohort": {
+        "recipe": "selected_strategy",
+        "target": "next_km",
+        "split": "test",
+        "cohort": "all eligible"
+      },
+      "n": 2141,
+      "metric": "mae",
+      "previous": 50.365093928304695,
+      "python310": 50.35333646921862,
+      "change_percent": -0.023344459761787117
+    }
+  ],
+  "limits": [
+    "Same previously evaluated data; not a new independent test",
+    "Retraining across library versions can change individual predictions",
+    "Historical models in the snapshot require their original package versions"
+  ]
+}
