@@ -1,163 +1,95 @@
-# EV Battery Performance Optimisation and Life Intelligence Platform
+# Pack Horizon: E-Bus Battery Lifecycle Tool
 
-An end-to-end battery research application with trained machine-learning models, a local prediction API, and the Cellwise web interface. It estimates battery health, remaining recorded life, state of charge, driving-energy consumption and conditional range, and compares tested charging policies.
+College course project (non-commercial). Forecasts battery health and replacement timing for Indian city e-buses (12 m and 9 m, LFP packs, overnight depot charging), designed like a B2B decision tool. No client, city or operator is named.
 
-The application runs from saved models. Retraining and the full datasets are not required for a demonstration.
+![Overview: a 12 m bus with battery packs coloured by projected health](docs/figures/overview.jpg)
 
-## Features
+| | |
+|---|---|
+| ![Optimise: Bus A beside Bus B with changes applied](docs/figures/optimise.jpg) | ![Evidence: what vendor data would change](docs/figures/evidence-calibration.jpg) |
 
-- **Vehicle analysis:** SOC, next-minute energy, next-kilometre consumption and conditional range from recorded telemetry.
-- **Battery health and life:** SOH from a completed charging profile and same-cell reference; remaining recorded cycles from health history.
-- **State of charge:** laboratory estimation, vehicle sensor-only estimation, and current tracking from a known starting SOC.
-- **Charging optimisation:** constrained ranking of nine tested LFP charging protocols using measured lifetimes or model predictions.
-- **Interactive frontend:** recorded examples, telemetry charts, editable parameters, JSON/CSV input, exports and model evidence.
+Screenshots are from the running app (Prior mode) and predate two changes: the interface redesign and the switch of the ageing engine to the NREL models. Their layout and their replacement and cost numbers are out of date (they show our earlier laboratory-fitted model, which gave about 4 years for the default bus; the app now gives about 12). Every number is a model output labelled "not yet validated on buses".
+
+## Honesty rules
+- Real, free public data only; nothing synthetic. Cell ageing comes from published laboratory-fitted models (NREL BLAST-Lite), weather from NASA POWER.
+- Works standalone ("Prior mode") from those models plus clearly labelled assumptions.
+- Every output is marked "not yet validated on buses".
+- Vendor data may only calibrate, never be required. A working calibration method is demonstrated on public field data (Evidence page, `docs/calibration-interface.md`) but is deliberately not wired into the app.
+- BMS-reported state of health is never treated as ground truth.
 
 ## Quick start
+Needs Python 3.12 or newer and Node 20 or newer. The ageing equations and parameters are in the repository, so nothing has to be downloaded or trained to run the app.
 
-Clone the repository, then enter its directory:
-
-```powershell
-git lfs install
+```bash
 git clone https://github.com/RidhamChhajer/EV-BATTERY-PERFORMANCE-OPTIMISATION-AND-LIFE-TOE-INTELLIGENCE-PLATFORM.git
-Set-Location EV-BATTERY-PERFORMANCE-OPTIMISATION-AND-LIFE-TOE-INTELLIGENCE-PLATFORM
+cd EV-BATTERY-PERFORMANCE-OPTIMISATION-AND-LIFE-TOE-INTELLIGENCE-PLATFORM
+scripts/setup_env.sh            # creates .venv and installs the Python dependencies
+scripts/run_all.sh              # builds the frontend on first run, then serves app and API on http://localhost:8000
 ```
 
-Use **Python 3.10**. The saved models were rebuilt with Python 3.10.11 and scikit-learn 1.7.2. Run the following commands in PowerShell from the project directory.
+Sign in with the demo account (username `demo`, password `PackHorizon-2026`). `PORT=8010 scripts/run_all.sh` changes the port, `REBUILD=1` forces a frontend rebuild. The app runs fully offline and needs no data folder. To host it on Render, see `docs/deployment.md` (a `render.yaml` Blueprint is included).
 
-If the existing `.venv` is available, skip environment creation and installation.
+Optional: `scripts/fetch_data.sh` downloads the public datasets (see `data/README.md`, several GB) and `scripts/build_data.sh` plus `scripts/train_all.sh` rebuild our own laboratory-fitted model files from them (`docs/reproducibility.md`). The app no longer shows that model; see the model card.
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+## Tests
+```bash
+.venv/bin/python -m pytest -q                                                  # backend and engine
+(cd frontend && npm test -- --run && npm run lint && npm run typecheck && npm run build)
+```
+Tests that need the downloaded datasets are skipped when `data/` is missing.
+
+## How the ageing numbers are made
+The app runs a Python port of two published LFP cell models from NREL's BLAST-Lite (`engine/reference/`, BSD-3-Clause, notice in `engine/reference/NOTICE`): a 250 Ah prismatic cell and a 3 Ah cylindrical cell. A bus year becomes one representative operating day per month with real monthly temperatures. Every result is the spread over 50 runs: 2 models x 5 levels of cell-to-cell scatter x 5 values of an assumed pack penalty (the weakest cell ends the pack's life 20 to 30 % earlier, NREL's rule of thumb). The port reproduces the package to within 0.5 points of capacity on the bus scenarios and 0.01 points on fixed conditions (`engine/artifacts/reference_port_check.json`, `tests/test_reference_blast.py`).
+
+For the default 12 m bus in the hot, dry zone this gives a median replacement time of about 12 years (10th percentile about 8 years; the 90th is beyond the 15-year horizon). That sits near published EV-battery lifetimes and far from the 4 to 5 years our own laboratory-fitted model gave, which is why the app changed engine. Our own model is still in the code (`EV_ENGINE=lab`) but is not shown.
+
+## Limits
+Read these before quoting any number from the app. The full list is in `docs/model-card.md` and on the Evidence page.
+- **No public data comes from LFP buses.** Everything labelled "bus" is a stated assumption: duty cycle, pack heating, the pack penalty (20 to 30 % earlier end of life) and the effect of temperature on range. Nothing is validated on buses.
+- **Each NREL model is fitted to laboratory tests on one cell design.** Both were cycled at 80 to 100 % depth of discharge and at charge rates up to 0.65 C and 1 C. The default 12 m bus uses about 69 % depth at about 0.34 C, so the cycling term is extrapolated, and every result lists which conditions fall outside the tested range.
+- **The range is a spread, not a confidence interval.** The two models differ by about 2 to 3 times on calendar ageing, and the cell-to-cell scatter (standard deviation 0.15) is BLAST-Lite's own convention, not a measured value.
+- **Neither model has a late-life knee.** Capacity never starts to fall sharply, so timing near end of life is probably optimistic.
+- **Cell temperature is air temperature plus an assumed heat rise.** Charge power acts only through time spent full. HVAC load and seasonal energy use are not modelled.
+- **The calibration demonstration uses NMC-like cells, not LFP,** and compares against capacity labels the dataset authors derived, not measured values.
+- **A demo, not a service.** One shared login, no database, no uptime or accuracy promise. An uncached prediction takes about 0.2 s on a laptop and more on a small hosted server.
+
+## Docs
+- `docs/software-design-document.md` design and decisions (with deviations marked), `docs/model-card.md` models and their measured errors
+- `docs/phase0-report.md` what the public data can and cannot support, `docs/data-attribution.md` credits and licences
+- `docs/calibration-interface.md`, `docs/accessibility.md`, `docs/security-review.md`, `docs/performance.md`, `docs/reproducibility.md`
+- `docs/phase-checkpoints.md` and `CHANGELOG.md` what changed at each checkpoint, `docs/development-playbook.md` the build plan
+
+## Licence and authorship
+No licence has been granted: the code is visible here but all rights are reserved by the author. The datasets keep their own licences (`docs/data-attribution.md`). All commits are by the repository owner.
+
+## Backend API (Phase 4)
+
+```bash
+scripts/dev_backend.sh          # http://localhost:8000, interactive docs at /docs
+scripts/smoke_api.sh            # starts a throwaway server and checks every endpoint
+.venv/bin/python scripts/export_openapi.py   # regenerate docs/openapi.json after any API change
 ```
 
-Start the backend:
+Endpoints under `/api/v1`: `GET /health` and `POST /auth/login` (public); `GET /auth/me`, `GET /presets`, `GET /zones`, `GET /evidence`, `POST /predict`, `POST /compare` and `POST /recommend` (sign-in required).
+`/recommend` searches charge cap and charging start time (plus cooling and energy use as a separate "needs confirmation" step) for five goals, and keeps every suggestion inside the route-plus-20 %-reserve rule.
+Every number in a prediction carries `{value, unit, evidence_level, validated_on_buses: false}`; responses state `mode: "prior"`.
+Settings (all optional): `EV_ENGINE` (`reference`, the default, or `lab`), `EV_ALLOWED_ORIGINS`, `EV_MAX_BODY_BYTES`, `EV_ARTIFACT_DIR`, and the demo-login settings `EV_AUTH_REQUIRED`, `EV_DEMO_USER`, `EV_DEMO_PASSWORD`, `EV_AUTH_SECRET`, `EV_TOKEN_TTL_S`, and the report-email settings `EV_SMTP_HOST`, `EV_SMTP_PORT`, `EV_SMTP_USER`, `EV_SMTP_PASSWORD`, `EV_MAIL_FROM` (see `.env.example`). Copy `.env.example` to `.env` (git-ignored) and the backend reads it at start-up, so nothing needs exporting in a terminal; variables already in the environment win.
 
-```powershell
-.\.venv\Scripts\python.exe backend\server.py
+**Demo login** (one account, no sign-up): username `demo`, password `PackHorizon-2026`. Change `EV_DEMO_PASSWORD` before showing a hosted copy to anyone outside the course. Without `EV_AUTH_SECRET` the server signs tokens with a random per-process key, so sign-ins end when it restarts. See `docs/security-review.md`.
+
+## Frontend (Phases 5 and 6)
+
+React 18 + TypeScript + Vite. The 3D bus is drawn in code with react-three-fiber (no model files, so no licences and no loading).
+
+```bash
+scripts/dev_backend.sh                         # API on :8000 (PORT=8010 scripts/dev_backend.sh if 8000 is taken)
+cd frontend && npm install
+npm run dev                                    # http://localhost:5173, /api is proxied to the backend (EV_API_PORT=8010 to match)
+npm run lint && npm run typecheck && npm test -- --run && npm run build
+npm run gen:api                                # regenerate API types and form limits after docs/openapi.json changes
 ```
 
-In a second terminal, start the frontend:
-
-```powershell
-.\.venv\Scripts\python.exe frontend\serve.py
-```
-
-Open **http://127.0.0.1:5173/**. The API runs at **http://127.0.0.1:8000**; `/health` reports model-load status. Stop each server with `Ctrl+C`. Node.js is needed only for frontend development checks; the interface itself uses HTML, CSS and JavaScript modules without a build step.
-
-Choose a study in the Project guide and select **Open recorded example**, then **Run analysis**. On an analysis tab, **Run example** loads and predicts immediately. Change a parameter and run again to compare outputs. Uploaded inputs must follow the domain, units and reference requirements described in [BACKEND.md](BACKEND.md).
-
-## Models and evaluation
-
-Seven saved model artifacts contain eight fitted estimators. Range is calculated from SOC, predicted consumption and supplied usable-energy settings.
-
-| Component | Method | Reported MAE | Evaluation scope |
-|---|---|---|---|
-| SOH | Guarded Ridge regression | 1.017 percentage points | Accepted sessions, battery-grouped development CV |
-| Remaining life | Ridge regression | 37.23 recorded cycles | Battery-grouped development CV |
-| Charging lifetime | Random forest surrogate | 112.77 study cycles | Held-protocol development CV |
-| Laboratory SOC | Histogram gradient boosting | 0.667 percentage points | Held BJDST profile |
-| Vehicle sensor SOC | Ridge regression | 4.271 percentage points | Held recording days |
-| Vehicle SOC tracking | Calibrated current integration | 0.098 percentage points | Held recording days; correct starting SOC required |
-| Next-minute energy | Random forest | 66.77 Wh | Held recording days |
-| Next-kilometre consumption | Extra Trees | 50.35 Wh/km | Held recording days |
-
-MAE is mean absolute error. Results describe different datasets and conditions and must not be combined into a single accuracy percentage. SOH coverage is 81.9% of development sessions, with rare errors up to 33.86 percentage points. No independent full-depletion range MAE is available. See [MODEL_INVENTORY.md](MODEL_INVENTORY.md) for baselines, model paths, feature choices and evaluation limitations.
-
-## Data sources
-
-| Source | Role |
-|---|---|
-| CALCE CS2_33â€“CS2_38, six LCO cells | SOH and recorded-cycle life prediction |
-| CALCE SP20-2 NMC calibration and dynamic profiles | Laboratory SOC |
-| Attia et al., nine A123 LFP protocols with five replicates each | Charging-lifetime prediction and tested-policy ranking |
-| Steinstraeter et al., 70 BMW i3 driving/heating trips | Vehicle SOC and driving-energy forecasts |
-| CALCE PL SOC-window experiments, including PL11 | Retained comparison data; excluded from the active CS2 health model |
-
-Processing standardises units, removes exact duplicate measurements, flags invalid readings and retains provenance. Features use current and past observations. Vehicle evaluation keeps complete recording days together; lab SOC holds out load profiles. SOH, RUL and charging results are development evaluations, and the original CS2 holdout has already been consumed.
-
-Sources: [CALCE](https://calce.umd.edu/data), [Attia et al.](https://doi.org/10.1038/s41586-020-1994-5), [charging-study repository](https://github.com/chueh-ermon/battery-fast-charging-optimization), and [vehicle dataset](https://doi.org/10.21227/6jr9-5235). Source acquisition details and usage requirements are recorded with the raw data.
-
-## Project structure
-
-```text
-backend/          Local HTTP/JSON prediction API
-frontend/         Cellwise interface, static server and UI tests
-scripts/          Preparation, training, inference and verification
-tests/            Python unit and API integration tests
-config/           Original SOH training configuration
-examples/         Canonical demonstration requests and measurements
-models/           Active artifacts and preserved training history
-data/raw/         Original sources and provenance
-data/processed/   Cleaned tables, features, labels and splits
-reports/          Data audits, evaluation results and model evidence
-requirements.txt  Pinned Python dependencies
-```
-
-The frontend server reuses requests from `examples/`. Generated frontend verification output, caches and local environments are ignored. Historical model artifacts and research reports remain available for reproducibility.
-
-## API
-
-| Method | Endpoint | Purpose |
-|---|---|---|
-| GET | `/health` | Service and model status |
-| GET | `/api/models` | Domains and input requirements |
-| POST | `/api/soh` | Health from a completed charge and reference |
-| POST | `/api/rul` | Remaining recorded cycles from health history |
-| POST | `/api/assess` | Combined health and life analysis |
-| POST | `/api/charging` | Tested-policy ranking under a C-rate limit |
-| POST | `/api/soc` | Laboratory or vehicle SOC |
-| POST | `/api/driving` | Driving-energy forecasts |
-| POST | `/api/range` | Conditional range |
-| POST | `/api/vehicle` | Combined vehicle analysis |
-
-Example request:
-
-```powershell
-Invoke-RestMethod -Uri 'http://127.0.0.1:8000/api/vehicle' -Method Post -ContentType 'application/json' -Body (Get-Content -Raw '.\examples\vehicle_request.json')
-```
-
-Positive current means charging; negative current means discharging. Inspect `status` and nullable values before displaying a prediction. Expected unavailable estimates can return HTTP 200. API schemas, limits and CORS configuration are documented in [BACKEND.md](BACKEND.md).
-
-## Verification and training
-
-Run Python unit and API integration tests (full datasets are not required):
-
-```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests
-```
-
-Frontend checks require Node.js and both servers running:
-
-```powershell
-Set-Location frontend
-npm.cmd ci
-npm.cmd test
-npm.cmd run test:e2e
-```
-
-On Windows, browser checks use installed Chrome. On other platforms, install Playwright Chromium before running them. Browser checks cover real API outputs, imports, validation, exports, cancellation, offline recovery, mobile layout and accessibility.
-
-With the full datasets restored, verify model/source hashes, splits and offline/API consistency:
-
-```powershell
-.\.venv\Scripts\python.exe scripts\build_project.py
-```
-
-To rebuild current models from the available data and frozen selections:
-
-```powershell
-.\.venv\Scripts\python.exe scripts\build_project.py --rebuild
-```
-
-Rebuilding overwrites derived model/report files and requires the source/prepared datasets. It does not create a new independent evaluation. See [TRAINING.md](TRAINING.md) for pipeline order, individual commands and historical SOH experiments.
-
-## Running and sharing
-
-To run the application elsewhere, include `backend/`, `frontend/`, `scripts/`, `examples/`, `requirements.txt` and the seven active model files listed in [MODEL_INVENTORY.md](MODEL_INVENTORY.md). Keep their directory structure. The full `data/` folder is required for data verification or rebuilding, but not for inference. Create a new virtual environment on the destination computer; do not copy `.venv/` or `node_modules/`. The seven active model artifacts are included through Git LFS. Install Git LFS before cloning, or run `git lfs pull` in an existing checkout to download them. Raw/processed datasets, historical model backups and local environments are excluded. See [data/README.md](data/README.md) for dataset acquisition and rebuild requirements.
-
-## Scientific scope
-
-This is a local research prototype using six ageing cells, one laboratory SOC cell and one source vehicle. The datasets describe different battery chemistries and conditions. RUL counts recorded cycle groups to a defined capacity threshold, not vehicle years or kilometres. Current tracking requires a correct initial SOC and continuous measurements. Range assumes recent driving conditions continue and the supplied capacity/SOC window is correct. Charging optimisation ranks a finite tested set under fixed study conditions; it does not control a vehicle charger.
-
-The local server has no authentication or production deployment configuration. Further independent data and validation are required before applying these models to other vehicles or operational battery management.
+Pages: **Overview** (full-screen 3D bus whose battery cells drain as the years pass, with Ageing, Charge, Heat and Range lenses, a depot charger and a Notes drawer for warnings; year scrubber; scenario and view settings open from a side dock), **Health** (ageing lab: 96 cells, ranked levers, day strip, temperature ring), **Replacement** (fifty-dot planner and fleet plan with a budget range), **Range** (route fit and how many buses fall short), **Cost** (battery cost per km against price and against the replacement line, plus the electricity bill per km from the published Pune EV tariffs when you choose one), each with a "Try a change" bar, **Optimise** (full-screen two-bus 3D, with a **Report** button that downloads the Bus A vs Bus B comparison as a four-page PDF in the app's own look (snapshot of both buses, gains and losses highlighted, charts, side-by-side table) or emails it to one address; Bus B is Bus A with changes you choose, plus goal presets from `/recommend`, all in drawers), **Evidence**.
+The scenario panel on the left is shared by every page. Bus A can be typed in or imported from a CSV (`frontend/public/samples/sample-fleet-duty-ILLUSTRATIVE.csv` is a made-up example for trying the import; it is not real fleet data and is never used for training).
+Keyboard shortcuts in the 3D view: A ageing, G charge, T heat, R range lens, 1-5 camera, S body, C wheels, P packs, L labels, D length, E pull apart, F charging flow, X scan, I isolate, Esc clear.
+The 3D view needs WebGL; without it a plain card is shown and every number is still available in the cards and tables.

@@ -1,0 +1,10 @@
+{
+  "conditions": 17,
+  "file": "data/naumann_lfp_calendar/DischargeCapacity.xlsx",
+  "licence": "CC BY 4.0",
+  "limitations": "Sony/Murata LFP/graphite cells, 29 months, one series per storage condition as published (cell count per series not verified)",
+  "retrieved_for_project": "2026-11-07",
+  "sha256": "c684bdb2adc7314d7cf943b472068694e20425af8f84fbf249d5d7554dc7e3f0",
+  "source_url": "https://data.mendeley.com/datasets/kxh42bfgtj",
+  "synthetic": false
+}

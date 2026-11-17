@@ -1,0 +1,11 @@
+{
+  "attribution": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+  "file": "engine/data/zones.json",
+  "licence": "NASA POWER open data; attribution required",
+  "limitations": "2 m air temperature from a gridded reanalysis/satellite product (about 50 km cells), not measured depot or battery temperature",
+  "period": "20150101-20241231",
+  "retrieved_for_project": "2026-11-07",
+  "sha256": "94e56b11d7966391d1cc202e171104fe074aeb42aa63b4012f41a73a10ea10c8",
+  "source_url": "https://power.larc.nasa.gov/",
+  "synthetic": false
+}

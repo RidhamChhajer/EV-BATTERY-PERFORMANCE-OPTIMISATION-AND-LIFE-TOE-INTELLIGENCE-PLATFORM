@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ev-battery-engine"
+version = "0.1.0"
+description = "E-bus battery lifecycle models (course project)"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy", "pandas", "pyarrow", "scipy", "scikit-learn",
+  "statsmodels", "openpyxl", "requests", "pydantic",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "hypothesis"]
+
+[tool.setuptools.packages.find]
+include = ["engine*"]

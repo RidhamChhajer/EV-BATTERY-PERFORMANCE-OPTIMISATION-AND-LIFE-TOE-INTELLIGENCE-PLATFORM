@@ -1,0 +1,2222 @@
+{
+ "generated": "2026-11-09",
+ "what": "Our cell model vs NREL BLAST-Lite (Lfp_Gr_250AhPrismatic) on identical bus duty cycles and climate.",
+ "blast_lite": {
+  "version": "1.1.3",
+  "python": "3.11",
+  "model": "Lfp_Gr_250AhPrismatic (main), Lfp_Gr_SonyMurata3Ah_Battery (second opinion)",
+  "source_url": "https://github.com/NREL/BLAST-Lite",
+  "kind": "cell-level empirical degradation model fitted by NREL to lab data on a different LFP/graphite cell"
+ },
+ "threshold": 0.8,
+ "horizon_years": 15,
+ "method": [
+  "Same inputs for both models: energy per day, pack size, charge power, charge start and departure hour, SOC window, monthly air temperature plus an assumed heat rise, operating days.",
+  "BLAST-Lite gets an hourly SOC and temperature series (drain over the duty window, constant-power charge, rest full) tiled over the horizon; ours uses its translated cell conditions.",
+  "'Ours (cell)' sets the pack penalty to zero so it is comparable to a cell model; 'Ours (with pack penalty)' is what the app shows by default (0-8 % earlier end of life, an assumption)."
+ ],
+ "caveats": [
+  "Both models are fitted to public lab data on different cells. Agreement shows consistency, not truth; disagreement shows model risk. Neither is validated on buses.",
+  "BLAST-Lite documents its LFP model as fitted to low-rate data and 10-45 \u00b0C and says to treat results qualitatively; it also suggests pack life can be 20-30 % shorter than cell life.",
+  "BLAST-Lite is a cell model: it has no pack-level or weakest-cell effect and no resistance output.",
+  "Run offline in a separate environment (Python 3.11); BLAST-Lite is not an app dependency. Licence is listed as BSD-3-Clause on GitHub and Apache-2.0 on PyPI, so it is used here only as an external comparison and none of its code or parameters are shipped."
+ ],
+ "summary": {
+  "n_scenarios": 10,
+  "retention_at_10y": {
+   "ours_cell_p50": [
+    0.275,
+    0.665
+   ],
+   "blast_250ah": [
+    0.858,
+    0.898
+   ],
+   "blast_sony_3ah": [
+    0.795,
+    0.88
+   ]
+  },
+  "years_to_80": {
+   "ours_cell_p50": [
+    3.431,
+    6.794
+   ],
+   "blast_250ah_reaches_80_within_horizon": 0,
+   "blast_sony_3ah_reaches_80_within_horizon": 8
+  },
+  "blast_inside_our_band_share": 0.0,
+  "ours_is_lower_in_all_scenarios": true,
+  "levers": [
+   {
+    "id": "12m_hot_dry_stop80",
+    "label": "12 m \u00b7 hot-dry \u00b7 stop charging at 80 %",
+    "ours_cell_change_pts_at_10y": 3.2,
+    "blast_250ah_change_pts_at_10y": 1.2,
+    "blast_sony_change_pts_at_10y": 1.3
+   },
+   {
+    "id": "12m_hot_dry_hotpack",
+    "label": "12 m \u00b7 hot-dry \u00b7 pack runs 8 \u00b0C above air",
+    "ours_cell_change_pts_at_10y": -13.0,
+    "blast_250ah_change_pts_at_10y": -1.7,
+    "blast_sony_change_pts_at_10y": -2.8
+   }
+  ],
+  "same_direction_of_levers": true
+ },
+ "single_condition_checks": [
+  {
+   "kind": "storage",
+   "label": "Storage at 25 \u00b0C, 100 % SOC",
+   "temp_c": 25.0,
+   "soc_pct": 100.0,
+   "ours": {
+    "loss_1y": 0.0451,
+    "loss_5y": 0.1108
+   },
+   "blast_250ah": {
+    "loss_1y": 0.0171,
+    "loss_5y": 0.0418
+   },
+   "blast_sony_3ah": {
+    "loss_1y": 0.0599,
+    "loss_5y": 0.1158
+   }
+  },
+  {
+   "kind": "storage",
+   "label": "Storage at 25 \u00b0C, 50 % SOC",
+   "temp_c": 25.0,
+   "soc_pct": 50.0,
+   "ours": {
+    "loss_1y": 0.0391,
+    "loss_5y": 0.0958
+   },
+   "blast_250ah": {
+    "loss_1y": 0.011,
+    "loss_5y": 0.0269
+   },
+   "blast_sony_3ah": {
+    "loss_1y": 0.0382,
+    "loss_5y": 0.0859
+   }
+  },
+  {
+   "kind": "storage",
+   "label": "Storage at 35 \u00b0C, 100 % SOC",
+   "temp_c": 35.0,
+   "soc_pct": 100.0,
+   "ours": {
+    "loss_1y": 0.0699,
+    "loss_5y": 0.1718
+   },
+   "blast_250ah": {
+    "loss_1y": 0.0312,
+    "loss_5y": 0.0762
+   },
+   "blast_sony_3ah": {
+    "loss_1y": 0.0787,
+    "loss_5y": 0.1569
+   }
+  },
+  {
+   "kind": "storage",
+   "label": "Storage at 35 \u00b0C, 50 % SOC",
+   "temp_c": 35.0,
+   "soc_pct": 50.0,
+   "ours": {
+    "loss_1y": 0.0608,
+    "loss_5y": 0.1488
+   },
+   "blast_250ah": {
+    "loss_1y": 0.0204,
+    "loss_5y": 0.0498
+   },
+   "blast_sony_3ah": {
+    "loss_1y": 0.0522,
+    "loss_5y": 0.1226
+   }
+  },
+  {
+   "kind": "cycling",
+   "label": "Full-depth cycling at 25 \u00b0C, 1 C",
+   "temp_c": 25.0,
+   "c_rate": 1.0,
+   "ours": {
+    "loss_1000efc": 0.0796,
+    "loss_3000efc": 0.5358
+   },
+   "ours_extrapolated": true,
+   "blast_250ah": {
+    "loss_1000efc": 0.1108,
+    "loss_3000efc": 0.2717
+   },
+   "blast_sony_3ah": {
+    "loss_1000efc": 0.0362,
+    "loss_3000efc": 0.0859
+   }
+  },
+  {
+   "kind": "cycling",
+   "label": "Full-depth cycling at 25 \u00b0C, 0.25 C",
+   "temp_c": 25.0,
+   "c_rate": 0.25,
+   "ours": {
+    "loss_1000efc": 0.1019,
+    "loss_3000efc": 0.576
+   },
+   "ours_extrapolated": true,
+   "blast_250ah": {
+    "loss_1000efc": 0.0574,
+    "loss_3000efc": 0.1355
+   },
+   "blast_sony_3ah": {
+    "loss_1000efc": 0.0461,
+    "loss_3000efc": 0.1017
+   }
+  }
+ ],
+ "scenarios": [
+  {
+   "id": "12m_hot_dry",
+   "label": "12m \u00b7 hot-dry",
+   "archetype": "12m",
+   "zone": "hot_dry",
+   "inputs": {
+    "km_per_day": 200.0,
+    "kwh_per_km": 1.2,
+    "pack_kwh": 350.0,
+    "charge_power_kw": 120.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 233.1,
+    "blast": 225.1
+   },
+   "c_rate_eff": 0.19,
+   "daily_swing_pct": 68.6,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9123,
+    0.8543,
+    0.7891,
+    0.7096,
+    0.619,
+    0.5094,
+    0.3909,
+    0.2514,
+    0.0958,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9394,
+    0.8971,
+    0.8521,
+    0.8017,
+    0.7466,
+    0.6848,
+    0.6188,
+    0.545,
+    0.4669,
+    0.3807,
+    0.2886,
+    0.1885,
+    0.0832,
+    0.0,
+    0.0
+   ],
+   "ours_p90": [
+    1.0,
+    0.9567,
+    0.9264,
+    0.8942,
+    0.8596,
+    0.8228,
+    0.784,
+    0.7402,
+    0.696,
+    0.6476,
+    0.596,
+    0.5409,
+    0.4844,
+    0.4236,
+    0.3579,
+    0.2895
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9418,
+    0.9013,
+    0.8573,
+    0.809,
+    0.7552,
+    0.6975,
+    0.6335,
+    0.5638,
+    0.4874,
+    0.4047,
+    0.315,
+    0.2203,
+    0.1193,
+    0.007,
+    0.0
+   ],
+   "blast": [
+    1.0,
+    0.9698,
+    0.9545,
+    0.9418,
+    0.9305,
+    0.92,
+    0.9103,
+    0.9009,
+    0.8921,
+    0.8836,
+    0.8755,
+    0.8676,
+    0.8599,
+    0.8524,
+    0.8451,
+    0.838
+   ],
+   "blast_alt": [
+    1.0,
+    0.9397,
+    0.9175,
+    0.9007,
+    0.8864,
+    0.8737,
+    0.862,
+    0.8512,
+    0.8411,
+    0.8315,
+    0.8224,
+    0.8136,
+    0.8052,
+    0.797,
+    0.789,
+    0.7811
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.1279,
+      "cycle_loss": 0.1046
+     },
+     "10y": {
+      "calendar_loss": 0.1881,
+      "cycle_loss": 0.3934
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.049,
+      "cycle_loss": 0.0309
+     },
+     "10y": {
+      "calendar_loss": 0.0702,
+      "cycle_loss": 0.0543
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.1168,
+      "cycle_loss": 0.0095
+     },
+     "10y": {
+      "calendar_loss": 0.1566,
+      "cycle_loss": 0.0209
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 4.03244490154208,
+    "ours_cell_p50": 4.1692313510816925,
+    "blast": null,
+    "blast_alt": 12.56014516938491
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 47.1
+  },
+  {
+   "id": "12m_hot_humid",
+   "label": "12m \u00b7 hot-humid",
+   "archetype": "12m",
+   "zone": "hot_humid",
+   "inputs": {
+    "km_per_day": 200.0,
+    "kwh_per_km": 1.2,
+    "pack_kwh": 350.0,
+    "charge_power_kw": 120.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 233.1,
+    "blast": 225.4
+   },
+   "c_rate_eff": 0.19,
+   "daily_swing_pct": 68.6,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9103,
+    0.8511,
+    0.7846,
+    0.7035,
+    0.6111,
+    0.4992,
+    0.3783,
+    0.2362,
+    0.0777,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9381,
+    0.8948,
+    0.8489,
+    0.7975,
+    0.7412,
+    0.6782,
+    0.6108,
+    0.5354,
+    0.4558,
+    0.3677,
+    0.2739,
+    0.172,
+    0.0645,
+    0.0,
+    0.0
+   ],
+   "ours_p90": [
+    1.0,
+    0.9558,
+    0.9248,
+    0.892,
+    0.8566,
+    0.8189,
+    0.7793,
+    0.7347,
+    0.6895,
+    0.6402,
+    0.5875,
+    0.5313,
+    0.4737,
+    0.4113,
+    0.3445,
+    0.2749
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9405,
+    0.8992,
+    0.8543,
+    0.8049,
+    0.75,
+    0.6912,
+    0.6259,
+    0.5547,
+    0.4765,
+    0.3925,
+    0.301,
+    0.2044,
+    0.1009,
+    0.0,
+    0.0
+   ],
+   "blast": [
+    1.0,
+    0.9709,
+    0.9559,
+    0.9436,
+    0.9326,
+    0.9224,
+    0.913,
+    0.904,
+    0.8955,
+    0.8873,
+    0.8794,
+    0.8718,
+    0.8644,
+    0.8571,
+    0.8501,
+    0.8432
+   ],
+   "blast_alt": [
+    1.0,
+    0.939,
+    0.9164,
+    0.8995,
+    0.885,
+    0.8721,
+    0.8604,
+    0.8495,
+    0.8394,
+    0.8297,
+    0.8207,
+    0.8118,
+    0.8035,
+    0.7952,
+    0.7872,
+    0.7793
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.1307,
+      "cycle_loss": 0.1067
+     },
+     "10y": {
+      "calendar_loss": 0.1923,
+      "cycle_loss": 0.4012
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.0482,
+      "cycle_loss": 0.0294
+     },
+     "10y": {
+      "calendar_loss": 0.069,
+      "cycle_loss": 0.0516
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.1184,
+      "cycle_loss": 0.0095
+     },
+     "10y": {
+      "calendar_loss": 0.1584,
+      "cycle_loss": 0.021
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 3.952735520540843,
+    "ours_cell_p50": 4.094125641982667,
+    "blast": null,
+    "blast_alt": 12.396509565133579
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 48.7
+  },
+  {
+   "id": "12m_composite",
+   "label": "12m \u00b7 composite",
+   "archetype": "12m",
+   "zone": "composite",
+   "inputs": {
+    "km_per_day": 200.0,
+    "kwh_per_km": 1.2,
+    "pack_kwh": 350.0,
+    "charge_power_kw": 120.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 233.1,
+    "blast": 225.1
+   },
+   "c_rate_eff": 0.19,
+   "daily_swing_pct": 68.6,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9149,
+    0.8586,
+    0.7954,
+    0.7182,
+    0.6302,
+    0.5234,
+    0.4082,
+    0.2728,
+    0.1212,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9413,
+    0.9003,
+    0.8565,
+    0.8076,
+    0.7542,
+    0.6942,
+    0.6299,
+    0.5585,
+    0.4822,
+    0.3988,
+    0.3092,
+    0.2118,
+    0.1094,
+    0.0012,
+    0.0
+   ],
+   "ours_p90": [
+    1.0,
+    0.9581,
+    0.9286,
+    0.8974,
+    0.8638,
+    0.8282,
+    0.7906,
+    0.7478,
+    0.7048,
+    0.6579,
+    0.6078,
+    0.5543,
+    0.4993,
+    0.4404,
+    0.3765,
+    0.3101
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9436,
+    0.9043,
+    0.8616,
+    0.8147,
+    0.7624,
+    0.7066,
+    0.6444,
+    0.5765,
+    0.5024,
+    0.4218,
+    0.3344,
+    0.2425,
+    0.145,
+    0.0356,
+    0.0
+   ],
+   "blast": [
+    1.0,
+    0.9699,
+    0.9546,
+    0.9419,
+    0.9306,
+    0.9201,
+    0.9103,
+    0.9009,
+    0.892,
+    0.8836,
+    0.8753,
+    0.8674,
+    0.8597,
+    0.8522,
+    0.8448,
+    0.8377
+   ],
+   "blast_alt": [
+    1.0,
+    0.9407,
+    0.9188,
+    0.9024,
+    0.8883,
+    0.8758,
+    0.8643,
+    0.8536,
+    0.8436,
+    0.8341,
+    0.8252,
+    0.8165,
+    0.8083,
+    0.8001,
+    0.7922,
+    0.7845
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.1238,
+      "cycle_loss": 0.1017
+     },
+     "10y": {
+      "calendar_loss": 0.1824,
+      "cycle_loss": 0.3825
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.0482,
+      "cycle_loss": 0.0316
+     },
+     "10y": {
+      "calendar_loss": 0.0691,
+      "cycle_loss": 0.0556
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.1147,
+      "cycle_loss": 0.0095
+     },
+     "10y": {
+      "calendar_loss": 0.1539,
+      "cycle_loss": 0.0209
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 4.146395636700087,
+    "ours_cell_p50": 4.282103026900452,
+    "blast": null,
+    "blast_alt": 13.025954055520584
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 45.4
+  },
+  {
+   "id": "12m_cool",
+   "label": "12m \u00b7 cool",
+   "archetype": "12m",
+   "zone": "cool",
+   "inputs": {
+    "km_per_day": 200.0,
+    "kwh_per_km": 1.2,
+    "pack_kwh": 350.0,
+    "charge_power_kw": 120.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 233.1,
+    "blast": 226.4
+   },
+   "c_rate_eff": 0.19,
+   "daily_swing_pct": 68.6,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9489,
+    0.9146,
+    0.876,
+    0.8272,
+    0.7722,
+    0.7058,
+    0.6324,
+    0.5471,
+    0.4527,
+    0.3501,
+    0.2391,
+    0.1214,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9648,
+    0.9398,
+    0.913,
+    0.8829,
+    0.8496,
+    0.8122,
+    0.7728,
+    0.7285,
+    0.6797,
+    0.628,
+    0.5726,
+    0.5113,
+    0.4466,
+    0.3787,
+    0.3049
+   ],
+   "ours_p90": [
+    1.0,
+    0.9748,
+    0.9569,
+    0.9376,
+    0.9174,
+    0.8949,
+    0.8714,
+    0.8455,
+    0.8185,
+    0.7897,
+    0.7586,
+    0.7259,
+    0.6914,
+    0.6531,
+    0.614,
+    0.5738
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9661,
+    0.9421,
+    0.916,
+    0.8869,
+    0.8549,
+    0.8202,
+    0.7814,
+    0.7387,
+    0.6924,
+    0.6414,
+    0.5875,
+    0.5302,
+    0.4672,
+    0.4006,
+    0.3287
+   ],
+   "blast": [
+    1.0,
+    0.9785,
+    0.9658,
+    0.9548,
+    0.9447,
+    0.9352,
+    0.9264,
+    0.9176,
+    0.9094,
+    0.9014,
+    0.8937,
+    0.886,
+    0.8787,
+    0.8714,
+    0.8643,
+    0.8572
+   ],
+   "blast_alt": [
+    1.0,
+    0.9594,
+    0.9445,
+    0.9331,
+    0.9233,
+    0.9146,
+    0.9065,
+    0.8989,
+    0.8918,
+    0.8849,
+    0.8785,
+    0.8721,
+    0.8661,
+    0.8601,
+    0.8543,
+    0.8486
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.0741,
+      "cycle_loss": 0.0641
+     },
+     "10y": {
+      "calendar_loss": 0.109,
+      "cycle_loss": 0.2413
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.0232,
+      "cycle_loss": 0.0416
+     },
+     "10y": {
+      "calendar_loss": 0.0332,
+      "cycle_loss": 0.0731
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.0762,
+      "cycle_loss": 0.0093
+     },
+     "10y": {
+      "calendar_loss": 0.1011,
+      "cycle_loss": 0.0204
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 6.3165531748915775,
+    "ours_cell_p50": 6.533395881964444,
+    "blast": null,
+    "blast_alt": null
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 25.2
+  },
+  {
+   "id": "9m_hot_dry",
+   "label": "9m \u00b7 hot-dry",
+   "archetype": "9m",
+   "zone": "hot_dry",
+   "inputs": {
+    "km_per_day": 180.0,
+    "kwh_per_km": 0.9,
+    "pack_kwh": 250.0,
+    "charge_power_kw": 90.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 220.3,
+    "blast": 212.9
+   },
+   "c_rate_eff": 0.2,
+   "daily_swing_pct": 64.8,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9118,
+    0.8557,
+    0.7943,
+    0.7216,
+    0.6373,
+    0.5399,
+    0.4276,
+    0.3052,
+    0.1653,
+    0.0115,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9394,
+    0.8985,
+    0.8546,
+    0.8074,
+    0.7555,
+    0.6985,
+    0.637,
+    0.5704,
+    0.4971,
+    0.4191,
+    0.3347,
+    0.2446,
+    0.148,
+    0.0463,
+    0.0
+   ],
+   "ours_p90": [
+    1.0,
+    0.9569,
+    0.927,
+    0.8967,
+    0.8632,
+    0.8289,
+    0.7913,
+    0.752,
+    0.7085,
+    0.664,
+    0.6164,
+    0.5654,
+    0.5122,
+    0.4586,
+    0.3993,
+    0.3366
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9416,
+    0.9023,
+    0.8603,
+    0.8146,
+    0.7648,
+    0.7104,
+    0.6517,
+    0.5864,
+    0.5173,
+    0.4417,
+    0.3606,
+    0.2734,
+    0.1818,
+    0.0835,
+    0.0
+   ],
+   "blast": [
+    1.0,
+    0.9699,
+    0.9548,
+    0.9424,
+    0.9313,
+    0.9211,
+    0.9115,
+    0.9024,
+    0.8938,
+    0.8855,
+    0.8775,
+    0.8698,
+    0.8623,
+    0.8551,
+    0.848,
+    0.841
+   ],
+   "blast_alt": [
+    1.0,
+    0.9389,
+    0.9168,
+    0.9002,
+    0.8861,
+    0.8736,
+    0.8622,
+    0.8517,
+    0.8419,
+    0.8326,
+    0.8239,
+    0.8154,
+    0.8074,
+    0.7995,
+    0.7919,
+    0.7844
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.1296,
+      "cycle_loss": 0.0938
+     },
+     "10y": {
+      "calendar_loss": 0.1907,
+      "cycle_loss": 0.3526
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.0499,
+      "cycle_loss": 0.029
+     },
+     "10y": {
+      "calendar_loss": 0.0715,
+      "cycle_loss": 0.051
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.1182,
+      "cycle_loss": 0.0082
+     },
+     "10y": {
+      "calendar_loss": 0.1581,
+      "cycle_loss": 0.0181
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 4.151417197620579,
+    "ours_cell_p50": 4.3012131303670085,
+    "blast": null,
+    "blast_alt": 12.873694065672083
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 43.6
+  },
+  {
+   "id": "9m_hot_humid",
+   "label": "9m \u00b7 hot-humid",
+   "archetype": "9m",
+   "zone": "hot_humid",
+   "inputs": {
+    "km_per_day": 180.0,
+    "kwh_per_km": 0.9,
+    "pack_kwh": 250.0,
+    "charge_power_kw": 90.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 220.3,
+    "blast": 213.2
+   },
+   "c_rate_eff": 0.2,
+   "daily_swing_pct": 64.8,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9099,
+    0.8525,
+    0.79,
+    0.7155,
+    0.6297,
+    0.5304,
+    0.4158,
+    0.2908,
+    0.1482,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.938,
+    0.8963,
+    0.8514,
+    0.8033,
+    0.7503,
+    0.6923,
+    0.6293,
+    0.5615,
+    0.4867,
+    0.4072,
+    0.3209,
+    0.2289,
+    0.1306,
+    0.0268,
+    0.0
+   ],
+   "ours_p90": [
+    1.0,
+    0.9559,
+    0.9254,
+    0.8945,
+    0.8603,
+    0.8251,
+    0.7869,
+    0.7467,
+    0.7024,
+    0.657,
+    0.6083,
+    0.5565,
+    0.502,
+    0.4474,
+    0.3868,
+    0.3226
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9404,
+    0.9001,
+    0.8573,
+    0.8106,
+    0.7599,
+    0.7042,
+    0.6443,
+    0.5778,
+    0.5074,
+    0.4301,
+    0.3475,
+    0.2587,
+    0.1651,
+    0.0646,
+    0.0
+   ],
+   "blast": [
+    1.0,
+    0.971,
+    0.9563,
+    0.9441,
+    0.9333,
+    0.9234,
+    0.9142,
+    0.9054,
+    0.897,
+    0.889,
+    0.8814,
+    0.8739,
+    0.8667,
+    0.8596,
+    0.8528,
+    0.846
+   ],
+   "blast_alt": [
+    1.0,
+    0.9382,
+    0.9157,
+    0.8989,
+    0.8846,
+    0.8721,
+    0.8606,
+    0.85,
+    0.8402,
+    0.8309,
+    0.8221,
+    0.8136,
+    0.8056,
+    0.7977,
+    0.7901,
+    0.7826
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.1326,
+      "cycle_loss": 0.0957
+     },
+     "10y": {
+      "calendar_loss": 0.1949,
+      "cycle_loss": 0.3596
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.049,
+      "cycle_loss": 0.0276
+     },
+     "10y": {
+      "calendar_loss": 0.0703,
+      "cycle_loss": 0.0484
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.1198,
+      "cycle_loss": 0.0082
+     },
+     "10y": {
+      "calendar_loss": 0.1598,
+      "cycle_loss": 0.0181
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 4.065338058209729,
+    "ours_cell_p50": 4.215110504278493,
+    "blast": null,
+    "blast_alt": 12.660918430386237
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 45.1
+  },
+  {
+   "id": "9m_composite",
+   "label": "9m \u00b7 composite",
+   "archetype": "9m",
+   "zone": "composite",
+   "inputs": {
+    "km_per_day": 180.0,
+    "kwh_per_km": 0.9,
+    "pack_kwh": 250.0,
+    "charge_power_kw": 90.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 220.3,
+    "blast": 212.9
+   },
+   "c_rate_eff": 0.2,
+   "daily_swing_pct": 64.8,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9145,
+    0.86,
+    0.8006,
+    0.73,
+    0.648,
+    0.5536,
+    0.444,
+    0.3252,
+    0.1891,
+    0.0399,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9412,
+    0.9016,
+    0.859,
+    0.8131,
+    0.7629,
+    0.7073,
+    0.6475,
+    0.5826,
+    0.5115,
+    0.4359,
+    0.3541,
+    0.2667,
+    0.1724,
+    0.0736,
+    0.0
+   ],
+   "ours_p90": [
+    1.0,
+    0.9582,
+    0.9293,
+    0.8998,
+    0.8673,
+    0.8341,
+    0.7975,
+    0.7593,
+    0.7172,
+    0.6738,
+    0.6278,
+    0.5781,
+    0.5265,
+    0.4743,
+    0.4167,
+    0.3557
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9434,
+    0.9052,
+    0.8645,
+    0.8202,
+    0.7717,
+    0.7189,
+    0.6619,
+    0.5984,
+    0.5312,
+    0.4579,
+    0.3788,
+    0.2941,
+    0.2054,
+    0.1096,
+    0.0055
+   ],
+   "blast": [
+    1.0,
+    0.97,
+    0.955,
+    0.9425,
+    0.9314,
+    0.9212,
+    0.9116,
+    0.9025,
+    0.8938,
+    0.8855,
+    0.8775,
+    0.8698,
+    0.8623,
+    0.8549,
+    0.8478,
+    0.8408
+   ],
+   "blast_alt": [
+    1.0,
+    0.9399,
+    0.9181,
+    0.9018,
+    0.888,
+    0.8757,
+    0.8645,
+    0.8541,
+    0.8444,
+    0.8353,
+    0.8266,
+    0.8183,
+    0.8104,
+    0.8026,
+    0.7951,
+    0.7877
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.1255,
+      "cycle_loss": 0.0912
+     },
+     "10y": {
+      "calendar_loss": 0.1849,
+      "cycle_loss": 0.3429
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.0491,
+      "cycle_loss": 0.0297
+     },
+     "10y": {
+      "calendar_loss": 0.0703,
+      "cycle_loss": 0.0521
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.1161,
+      "cycle_loss": 0.0082
+     },
+     "10y": {
+      "calendar_loss": 0.1553,
+      "cycle_loss": 0.018
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 4.2707409286952585,
+    "ours_cell_p50": 4.427646699224804,
+    "blast": null,
+    "blast_alt": 13.363530068220372
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 42.0
+  },
+  {
+   "id": "9m_cool",
+   "label": "9m \u00b7 cool",
+   "archetype": "9m",
+   "zone": "cool",
+   "inputs": {
+    "km_per_day": 180.0,
+    "kwh_per_km": 0.9,
+    "pack_kwh": 250.0,
+    "charge_power_kw": 90.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 220.3,
+    "blast": 214.2
+   },
+   "c_rate_eff": 0.2,
+   "daily_swing_pct": 64.8,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9487,
+    0.9155,
+    0.879,
+    0.8348,
+    0.784,
+    0.724,
+    0.657,
+    0.5812,
+    0.4956,
+    0.4011,
+    0.3011,
+    0.1933,
+    0.0789,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9648,
+    0.9405,
+    0.9147,
+    0.8862,
+    0.8553,
+    0.8211,
+    0.7833,
+    0.7431,
+    0.6991,
+    0.6511,
+    0.6005,
+    0.5467,
+    0.4871,
+    0.4242,
+    0.3596
+   ],
+   "ours_p90": [
+    1.0,
+    0.9748,
+    0.9573,
+    0.9392,
+    0.9196,
+    0.8985,
+    0.8763,
+    0.8522,
+    0.8267,
+    0.7998,
+    0.7714,
+    0.7408,
+    0.7083,
+    0.6756,
+    0.6388,
+    0.6015
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.966,
+    0.9427,
+    0.9179,
+    0.8904,
+    0.8606,
+    0.8281,
+    0.7923,
+    0.7533,
+    0.7108,
+    0.665,
+    0.6149,
+    0.5626,
+    0.5069,
+    0.4464,
+    0.3823
+   ],
+   "blast": [
+    1.0,
+    0.979,
+    0.9668,
+    0.9561,
+    0.9465,
+    0.9374,
+    0.9289,
+    0.9205,
+    0.9127,
+    0.9049,
+    0.8976,
+    0.8902,
+    0.8833,
+    0.8763,
+    0.8694,
+    0.8627
+   ],
+   "blast_alt": [
+    1.0,
+    0.9588,
+    0.944,
+    0.9329,
+    0.9233,
+    0.9148,
+    0.9069,
+    0.8996,
+    0.8928,
+    0.8863,
+    0.8801,
+    0.8741,
+    0.8684,
+    0.8627,
+    0.8573,
+    0.8519
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.0751,
+      "cycle_loss": 0.0576
+     },
+     "10y": {
+      "calendar_loss": 0.1105,
+      "cycle_loss": 0.2163
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.0236,
+      "cycle_loss": 0.039
+     },
+     "10y": {
+      "calendar_loss": 0.0338,
+      "cycle_loss": 0.0686
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.0772,
+      "cycle_loss": 0.008
+     },
+     "10y": {
+      "calendar_loss": 0.1023,
+      "cycle_loss": 0.0176
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 6.564996003488542,
+    "ours_cell_p50": 6.793610853063995,
+    "blast": null,
+    "blast_alt": null
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 23.3
+  },
+  {
+   "id": "12m_hot_dry_stop80",
+   "label": "12 m \u00b7 hot-dry \u00b7 stop charging at 80 %",
+   "archetype": "12m",
+   "zone": "hot_dry",
+   "inputs": {
+    "km_per_day": 200.0,
+    "kwh_per_km": 1.2,
+    "pack_kwh": 350.0,
+    "charge_power_kw": 120.0,
+    "soc_max_pct": 80.0,
+    "heat_rise_c": 3.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 233.1,
+    "blast": 233.1
+   },
+   "c_rate_eff": 0.19,
+   "daily_swing_pct": 68.6,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.9246,
+    0.8711,
+    0.81,
+    0.7337,
+    0.6442,
+    0.5392,
+    0.4177,
+    0.2806,
+    0.1293,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9479,
+    0.9096,
+    0.8674,
+    0.8203,
+    0.768,
+    0.7098,
+    0.6457,
+    0.5757,
+    0.4985,
+    0.415,
+    0.3231,
+    0.2242,
+    0.1202,
+    0.0072,
+    0.0
+   ],
+   "ours_p90": [
+    1.0,
+    0.9628,
+    0.9355,
+    0.9057,
+    0.8743,
+    0.8398,
+    0.8023,
+    0.7629,
+    0.7189,
+    0.6738,
+    0.6231,
+    0.5707,
+    0.513,
+    0.4571,
+    0.395,
+    0.3261
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9498,
+    0.913,
+    0.8727,
+    0.8273,
+    0.7772,
+    0.7211,
+    0.6596,
+    0.5925,
+    0.517,
+    0.437,
+    0.3487,
+    0.2538,
+    0.1518,
+    0.0453,
+    0.0
+   ],
+   "blast": [
+    1.0,
+    0.974,
+    0.9601,
+    0.9488,
+    0.9384,
+    0.929,
+    0.9198,
+    0.9113,
+    0.9029,
+    0.8951,
+    0.8872,
+    0.8799,
+    0.8724,
+    0.8654,
+    0.8585,
+    0.8518
+   ],
+   "blast_alt": [
+    1.0,
+    0.9507,
+    0.9297,
+    0.914,
+    0.9,
+    0.8877,
+    0.8758,
+    0.8653,
+    0.8547,
+    0.8452,
+    0.8355,
+    0.8267,
+    0.8177,
+    0.8095,
+    0.8014,
+    0.7936
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.1086,
+      "cycle_loss": 0.1046
+     },
+     "10y": {
+      "calendar_loss": 0.1597,
+      "cycle_loss": 0.3934
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.0395,
+      "cycle_loss": 0.0315
+     },
+     "10y": {
+      "calendar_loss": 0.0568,
+      "cycle_loss": 0.056
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.1023,
+      "cycle_loss": 0.01
+     },
+     "10y": {
+      "calendar_loss": 0.1414,
+      "cycle_loss": 0.0231
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 4.411024476598523,
+    "ours_cell_p50": 4.549390511235354,
+    "blast": null,
+    "blast_alt": 14.2478885332187
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 45.0
+  },
+  {
+   "id": "12m_hot_dry_hotpack",
+   "label": "12 m \u00b7 hot-dry \u00b7 pack runs 8 \u00b0C above air",
+   "archetype": "12m",
+   "zone": "hot_dry",
+   "inputs": {
+    "km_per_day": 200.0,
+    "kwh_per_km": 1.2,
+    "pack_kwh": 350.0,
+    "charge_power_kw": 120.0,
+    "soc_max_pct": 100.0,
+    "heat_rise_c": 8.0,
+    "operating_days_per_year": 340.0
+   },
+   "efc_per_year": {
+    "ours": 233.1,
+    "blast": 224.0
+   },
+   "c_rate_eff": 0.19,
+   "daily_swing_pct": 68.6,
+   "years": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "ours_p10": [
+    1.0,
+    0.8917,
+    0.8207,
+    0.7404,
+    0.6441,
+    0.534,
+    0.4019,
+    0.2579,
+    0.0893,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p50": [
+    1.0,
+    0.9253,
+    0.8735,
+    0.8176,
+    0.7565,
+    0.6895,
+    0.6145,
+    0.5342,
+    0.4437,
+    0.3492,
+    0.2444,
+    0.1304,
+    0.0118,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ours_p90": [
+    1.0,
+    0.9466,
+    0.9093,
+    0.8701,
+    0.8276,
+    0.7825,
+    0.7355,
+    0.6818,
+    0.6277,
+    0.5686,
+    0.5059,
+    0.4396,
+    0.3709,
+    0.297,
+    0.218,
+    0.1342
+   ],
+   "ours_cell_p50": [
+    1.0,
+    0.9281,
+    0.8785,
+    0.8245,
+    0.7651,
+    0.7002,
+    0.63,
+    0.5522,
+    0.4666,
+    0.3738,
+    0.2747,
+    0.1648,
+    0.0498,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "blast": [
+    1.0,
+    0.9634,
+    0.9457,
+    0.9313,
+    0.9186,
+    0.907,
+    0.8961,
+    0.8859,
+    0.8762,
+    0.867,
+    0.858,
+    0.8495,
+    0.8411,
+    0.8331,
+    0.8253,
+    0.8177
+   ],
+   "blast_alt": [
+    1.0,
+    0.9309,
+    0.9049,
+    0.8854,
+    0.8687,
+    0.8539,
+    0.8404,
+    0.8278,
+    0.8161,
+    0.805,
+    0.7946,
+    0.7844,
+    0.7748,
+    0.7653,
+    0.7561,
+    0.7471
+   ],
+   "loss_split": {
+    "ours": {
+     "5y": {
+      "calendar_loss": 0.1585,
+      "cycle_loss": 0.1265
+     },
+     "10y": {
+      "calendar_loss": 0.233,
+      "cycle_loss": 0.476
+     }
+    },
+    "blast_250ah": {
+     "5y": {
+      "calendar_loss": 0.0655,
+      "cycle_loss": 0.0274
+     },
+     "10y": {
+      "calendar_loss": 0.0939,
+      "cycle_loss": 0.0481
+     }
+    },
+    "blast_sony_3ah": {
+     "5y": {
+      "calendar_loss": 0.1365,
+      "cycle_loss": 0.0096
+     },
+     "10y": {
+      "calendar_loss": 0.1842,
+      "cycle_loss": 0.0212
+     }
+    }
+   },
+   "years_to_80": {
+    "ours_p50": 3.296490647685363,
+    "ours_cell_p50": 3.4313909180180153,
+    "blast": null,
+    "blast_alt": 9.454932284088523
+   },
+   "blast_inside_band": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "blast_inside_band_share": 0.0,
+   "gap_pts_at_10y": 58.3
+  }
+ ]
+}

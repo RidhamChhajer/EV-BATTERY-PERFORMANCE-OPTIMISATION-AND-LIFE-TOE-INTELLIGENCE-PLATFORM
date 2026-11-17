@@ -1,0 +1,37 @@
+{
+  "_about": "Electricity tariffs the operator pays at the depot. Every figure was read from the regulator's order named in `source`; none is a guess. Vendor or news figures are not used.",
+  "tariffs": {
+    "msedcl_ht_ix": {
+      "label": "Pune, MSEDCL HT IX (HT EV charging station)",
+      "utility": "MSEDCL (Mahavitaran), Pune circle",
+      "financial_year": "FY 2026-27, in force from 1 April 2026",
+      "energy_inr_per_unit": 8.92,
+      "wheeling_inr_per_unit": 0.81,
+      "fixed_inr_per_kva_month": 0.0,
+      "unit": "Rs per kVAh, treated as Rs per kWh",
+      "source": "MERC Order in Case No. 75 of 2025 (post-remand), 25 March 2026, Annexure II, 'Summary of HT Tariff for FY 2026-27' (page 100 of 123): HT IX energy charge 8.92, wheeling charge 0.81 (EHV supply has no wheeling charge)",
+      "url": "https://www.mahadiscom.in/consumer/wp-content/uploads/2026/07/Tariff-Order_Case-No.-75-of-2025-dated-25th-March-2026.pdf"
+    },
+    "msedcl_lt_viii": {
+      "label": "Pune, MSEDCL LT VIII (LT EV charging station)",
+      "utility": "MSEDCL (Mahavitaran), Pune circle",
+      "financial_year": "FY 2026-27, in force from 1 April 2026",
+      "energy_inr_per_unit": 7.73,
+      "wheeling_inr_per_unit": 1.52,
+      "fixed_inr_per_kva_month": 0.0,
+      "unit": "Rs per kVAh, treated as Rs per kWh",
+      "source": "MERC Order in Case No. 75 of 2025 (post-remand), 25 March 2026, Annexure II, 'Summary of LT Tariff for FY 2026-27' (page 95 of 123): LT VIII energy charge 7.73, wheeling charge 1.52, no fixed charge",
+      "url": "https://www.mahadiscom.in/consumer/wp-content/uploads/2026/07/Tariff-Order_Case-No.-75-of-2025-dated-25th-March-2026.pdf"
+    }
+  },
+  "time_of_day": {
+    "applies_to": "energy charge only, not wheeling",
+    "slots": [
+      {"from_hour": 0, "to_hour": 9, "change": 0.0, "name": "night and morning"},
+      {"from_hour": 9, "to_hour": 17, "change": -0.20, "name": "solar hours"},
+      {"from_hour": 17, "to_hour": 24, "change": 0.20, "name": "evening peak"}
+    ],
+    "notes": "Case 75 of 2025, paras 18.13 and 18.14 and Table 8: the night rebate (00:00 to 06:00) is removed, so 00:00 to 09:00 is 0 %. Solar hours 09:00 to 17:00 are a rebate of 15 % in April to September and 25 % in October to March for FY 2026-27, which averages 20 % over the year. Peak hours 17:00 to 24:00 carry +20 % in Table 8. The order's footnote for the peak rate was not in the text extracted; the MERC press note on Case 217 of 2024 (Note 3 to its ToD table) applies +20 % at peak to every category other than residential, group housing and agriculture, which includes EV charging. Check the first bill."
+  },
+  "not_included": ["electricity duty", "fuel adjustment charge (FAC)", "tax on sale of electricity", "power-factor penalty (the tariff is per kVAh and is treated here as per kWh at unity power factor)", "tariff changes after FY 2026-27"]
+}

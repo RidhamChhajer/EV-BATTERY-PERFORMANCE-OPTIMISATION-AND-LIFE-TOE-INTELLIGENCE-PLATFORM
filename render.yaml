@@ -1,0 +1,19 @@
+# Render Blueprint: one web service that builds the frontend, then serves the API and the built app together.
+# Create it from the dashboard: New > Blueprint > pick this repository. Render asks for EV_DEMO_PASSWORD when it creates the service.
+services:
+  - type: web
+    name: pack-horizon
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.lock.txt && cd frontend && npm ci && npm run build
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.14"
+      - key: EV_DEMO_USER
+        value: demo
+      - key: EV_DEMO_PASSWORD
+        sync: false          # you type this in the dashboard; it is never stored in git
+      - key: EV_AUTH_SECRET
+        generateValue: true  # fixed across restarts, so sign-ins survive a restart

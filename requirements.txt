@@ -1,9 +1,17 @@
-numpy==2.2.6
-pandas==2.3.3
-openpyxl==3.1.5
-scipy==1.15.3
-h5py==3.14.0
-mat-io==0.4.2
-matplotlib==3.10.8
-scikit-learn==1.7.2
-joblib==1.5.3
+# top-level dependencies (exact versions: requirements.lock.txt)
+numpy
+pandas
+pyarrow
+scipy
+scikit-learn
+statsmodels
+openpyxl
+requests
+pytest
+hypothesis
+matplotlib
+reportlab
+pydantic
+fastapi
+uvicorn
+httpx

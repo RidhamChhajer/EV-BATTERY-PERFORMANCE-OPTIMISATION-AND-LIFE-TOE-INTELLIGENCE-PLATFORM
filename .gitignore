@@ -1,30 +1,35 @@
+# environments and secrets
 .venv/
+phase0/.venv/
 node_modules/
-__pycache__/
-*.py[cod]
-*.partial
-*.download
 .env
 .env.*
 !.env.example
 *.pem
 *.key
-.DS_Store
-Thumbs.db
-work/
-frontend/verification/
+# data and generated artifacts
 data/*
 !data/README.md
-data.zip
-models/*
-!models/final/
-!models/reliable/
-models/final/*
-models/reliable/*
-!models/final/charging.joblib
-!models/final/driving.joblib
-!models/final/rul.joblib
-!models/final/soc_calce.joblib
-!models/final/soc_vehicle.joblib
-!models/final/soc_tracking.joblib
-!models/reliable/soh_guarded.joblib
+*.parquet
+*.pkl
+*.joblib
+*.npz
+engine/artifacts/*
+!engine/artifacts/.gitkeep
+!engine/artifacts/*.json
+# python / node / os
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+dist/
+build/
+*.log
+.DS_Store
+.claude/
+# phase0 generated outputs
+phase0/*.parquet
+phase0/*.csv
+phase0/extract.*
+frontend/tsconfig.tsbuildinfo

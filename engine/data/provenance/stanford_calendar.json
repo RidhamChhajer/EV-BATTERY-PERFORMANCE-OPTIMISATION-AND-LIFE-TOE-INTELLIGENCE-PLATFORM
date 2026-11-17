@@ -1,0 +1,10 @@
+{
+  "cells": 80,
+  "file": "data/stanford_calendar/joule_declass_sum.zip",
+  "licence": "none declared (coursework use)",
+  "limitations": "storage only, 24-85 C, 50/100% SOC; retention vs first reference test, not nameplate",
+  "retrieved_for_project": "2026-11-07",
+  "sha256": "49babeed89739e0850d0da8bf817801889622e1c23c83f357904fe282d0afc78",
+  "source_url": "https://osf.io/ju325/",
+  "synthetic": false
+}

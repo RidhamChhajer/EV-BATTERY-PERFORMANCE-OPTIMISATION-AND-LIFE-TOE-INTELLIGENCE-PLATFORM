@@ -1,0 +1,474 @@
+{
+ "attribution": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+ "note": "Air temperature, not battery temperature. Zones are climate labels, not places.",
+ "period": "20150101-20241231",
+ "source": "NASA POWER daily point data, parameters T2M, T2M_MAX, T2M_MIN (2 m air temperature)",
+ "source_url": "https://power.larc.nasa.gov/",
+ "synthetic": false,
+ "zones": {
+  "composite": {
+   "elevation_m": 128,
+   "label": "Composite (northern plains)",
+   "lat": 27.0,
+   "lon": 80.5,
+   "monthly": [
+    {
+     "diurnal_range_c": 14.85,
+     "month": 1,
+     "n_days": 310,
+     "tmax_mean_c": 22.87,
+     "tmax_p95_c": 27.99,
+     "tmean_c": 14.61,
+     "tmin_mean_c": 8.02
+    },
+    {
+     "diurnal_range_c": 16.37,
+     "month": 2,
+     "n_days": 283,
+     "tmax_mean_c": 27.8,
+     "tmax_p95_c": 33.32,
+     "tmean_c": 18.91,
+     "tmin_mean_c": 11.43
+    },
+    {
+     "diurnal_range_c": 16.89,
+     "month": 3,
+     "n_days": 310,
+     "tmax_mean_c": 33.98,
+     "tmax_p95_c": 40.2,
+     "tmean_c": 25.12,
+     "tmin_mean_c": 17.1
+    },
+    {
+     "diurnal_range_c": 16.64,
+     "month": 4,
+     "n_days": 300,
+     "tmax_mean_c": 40.22,
+     "tmax_p95_c": 44.5,
+     "tmean_c": 31.68,
+     "tmin_mean_c": 23.58
+    },
+    {
+     "diurnal_range_c": 14.71,
+     "month": 5,
+     "n_days": 310,
+     "tmax_mean_c": 42.22,
+     "tmax_p95_c": 46.82,
+     "tmean_c": 34.91,
+     "tmin_mean_c": 27.51
+    },
+    {
+     "diurnal_range_c": 11.26,
+     "month": 6,
+     "n_days": 300,
+     "tmax_mean_c": 41.31,
+     "tmax_p95_c": 46.7,
+     "tmean_c": 35.73,
+     "tmin_mean_c": 30.05
+    },
+    {
+     "diurnal_range_c": 7.13,
+     "month": 7,
+     "n_days": 310,
+     "tmax_mean_c": 34.32,
+     "tmax_p95_c": 40.7,
+     "tmean_c": 30.56,
+     "tmin_mean_c": 27.19
+    },
+    {
+     "diurnal_range_c": 6.55,
+     "month": 8,
+     "n_days": 310,
+     "tmax_mean_c": 32.54,
+     "tmax_p95_c": 35.59,
+     "tmean_c": 29.02,
+     "tmin_mean_c": 26.0
+    },
+    {
+     "diurnal_range_c": 7.65,
+     "month": 9,
+     "n_days": 300,
+     "tmax_mean_c": 32.28,
+     "tmax_p95_c": 37.61,
+     "tmean_c": 28.22,
+     "tmin_mean_c": 24.63
+    },
+    {
+     "diurnal_range_c": 11.64,
+     "month": 10,
+     "n_days": 310,
+     "tmax_mean_c": 31.66,
+     "tmax_p95_c": 36.7,
+     "tmean_c": 25.45,
+     "tmin_mean_c": 20.02
+    },
+    {
+     "diurnal_range_c": 13.36,
+     "month": 11,
+     "n_days": 300,
+     "tmax_mean_c": 27.8,
+     "tmax_p95_c": 32.3,
+     "tmean_c": 20.38,
+     "tmin_mean_c": 14.44
+    },
+    {
+     "diurnal_range_c": 14.16,
+     "month": 12,
+     "n_days": 310,
+     "tmax_mean_c": 23.73,
+     "tmax_p95_c": 28.02,
+     "tmean_c": 15.74,
+     "tmin_mean_c": 9.58
+    }
+   ]
+  },
+  "cool": {
+   "elevation_m": 1887,
+   "label": "Cool (hill region, about 1900 m)",
+   "lat": 31.0,
+   "lon": 77.5,
+   "monthly": [
+    {
+     "diurnal_range_c": 10.76,
+     "month": 1,
+     "n_days": 310,
+     "tmax_mean_c": 11.94,
+     "tmax_p95_c": 17.58,
+     "tmean_c": 5.49,
+     "tmin_mean_c": 1.18
+    },
+    {
+     "diurnal_range_c": 12.21,
+     "month": 2,
+     "n_days": 283,
+     "tmax_mean_c": 14.69,
+     "tmax_p95_c": 20.52,
+     "tmean_c": 7.74,
+     "tmin_mean_c": 2.48
+    },
+    {
+     "diurnal_range_c": 12.53,
+     "month": 3,
+     "n_days": 310,
+     "tmax_mean_c": 18.24,
+     "tmax_p95_c": 24.89,
+     "tmean_c": 11.4,
+     "tmin_mean_c": 5.71
+    },
+    {
+     "diurnal_range_c": 13.33,
+     "month": 4,
+     "n_days": 300,
+     "tmax_mean_c": 23.37,
+     "tmax_p95_c": 28.58,
+     "tmean_c": 16.36,
+     "tmin_mean_c": 10.04
+    },
+    {
+     "diurnal_range_c": 13.08,
+     "month": 5,
+     "n_days": 310,
+     "tmax_mean_c": 26.88,
+     "tmax_p95_c": 31.96,
+     "tmean_c": 20.14,
+     "tmin_mean_c": 13.81
+    },
+    {
+     "diurnal_range_c": 11.47,
+     "month": 6,
+     "n_days": 300,
+     "tmax_mean_c": 28.12,
+     "tmax_p95_c": 32.73,
+     "tmean_c": 22.18,
+     "tmin_mean_c": 16.65
+    },
+    {
+     "diurnal_range_c": 7.46,
+     "month": 7,
+     "n_days": 310,
+     "tmax_mean_c": 25.27,
+     "tmax_p95_c": 28.51,
+     "tmean_c": 21.15,
+     "tmin_mean_c": 17.81
+    },
+    {
+     "diurnal_range_c": 6.63,
+     "month": 8,
+     "n_days": 310,
+     "tmax_mean_c": 23.95,
+     "tmax_p95_c": 25.85,
+     "tmean_c": 20.26,
+     "tmin_mean_c": 17.32
+    },
+    {
+     "diurnal_range_c": 8.01,
+     "month": 9,
+     "n_days": 300,
+     "tmax_mean_c": 23.08,
+     "tmax_p95_c": 25.26,
+     "tmean_c": 18.64,
+     "tmin_mean_c": 15.08
+    },
+    {
+     "diurnal_range_c": 10.52,
+     "month": 10,
+     "n_days": 310,
+     "tmax_mean_c": 20.78,
+     "tmax_p95_c": 23.59,
+     "tmean_c": 14.78,
+     "tmin_mean_c": 10.25
+    },
+    {
+     "diurnal_range_c": 10.99,
+     "month": 11,
+     "n_days": 300,
+     "tmax_mean_c": 17.56,
+     "tmax_p95_c": 21.13,
+     "tmean_c": 10.99,
+     "tmin_mean_c": 6.57
+    },
+    {
+     "diurnal_range_c": 11.36,
+     "month": 12,
+     "n_days": 310,
+     "tmax_mean_c": 14.54,
+     "tmax_p95_c": 19.85,
+     "tmean_c": 7.65,
+     "tmin_mean_c": 3.18
+    }
+   ]
+  },
+  "hot_dry": {
+   "elevation_m": 212,
+   "label": "Hot-dry (semi-arid interior)",
+   "lat": 26.0,
+   "lon": 73.0,
+   "monthly": [
+    {
+     "diurnal_range_c": 16.67,
+     "month": 1,
+     "n_days": 310,
+     "tmax_mean_c": 25.65,
+     "tmax_p95_c": 29.85,
+     "tmean_c": 16.32,
+     "tmin_mean_c": 8.98
+    },
+    {
+     "diurnal_range_c": 17.65,
+     "month": 2,
+     "n_days": 283,
+     "tmax_mean_c": 30.13,
+     "tmax_p95_c": 34.72,
+     "tmean_c": 20.58,
+     "tmin_mean_c": 12.48
+    },
+    {
+     "diurnal_range_c": 16.74,
+     "month": 3,
+     "n_days": 310,
+     "tmax_mean_c": 34.65,
+     "tmax_p95_c": 41.17,
+     "tmean_c": 25.88,
+     "tmin_mean_c": 17.91
+    },
+    {
+     "diurnal_range_c": 16.39,
+     "month": 4,
+     "n_days": 300,
+     "tmax_mean_c": 39.84,
+     "tmax_p95_c": 43.67,
+     "tmean_c": 31.5,
+     "tmin_mean_c": 23.45
+    },
+    {
+     "diurnal_range_c": 14.78,
+     "month": 5,
+     "n_days": 310,
+     "tmax_mean_c": 42.13,
+     "tmax_p95_c": 46.11,
+     "tmean_c": 34.77,
+     "tmin_mean_c": 27.35
+    },
+    {
+     "diurnal_range_c": 11.58,
+     "month": 6,
+     "n_days": 300,
+     "tmax_mean_c": 40.18,
+     "tmax_p95_c": 44.96,
+     "tmean_c": 34.36,
+     "tmin_mean_c": 28.6
+    },
+    {
+     "diurnal_range_c": 9.37,
+     "month": 7,
+     "n_days": 310,
+     "tmax_mean_c": 36.28,
+     "tmax_p95_c": 40.46,
+     "tmean_c": 31.3,
+     "tmin_mean_c": 26.91
+    },
+    {
+     "diurnal_range_c": 8.78,
+     "month": 8,
+     "n_days": 310,
+     "tmax_mean_c": 33.85,
+     "tmax_p95_c": 38.16,
+     "tmean_c": 29.06,
+     "tmin_mean_c": 25.07
+    },
+    {
+     "diurnal_range_c": 10.64,
+     "month": 9,
+     "n_days": 300,
+     "tmax_mean_c": 34.46,
+     "tmax_p95_c": 38.25,
+     "tmean_c": 28.66,
+     "tmin_mean_c": 23.81
+    },
+    {
+     "diurnal_range_c": 14.75,
+     "month": 10,
+     "n_days": 310,
+     "tmax_mean_c": 35.13,
+     "tmax_p95_c": 38.57,
+     "tmean_c": 27.1,
+     "tmin_mean_c": 20.38
+    },
+    {
+     "diurnal_range_c": 15.75,
+     "month": 11,
+     "n_days": 300,
+     "tmax_mean_c": 31.31,
+     "tmax_p95_c": 35.16,
+     "tmean_c": 22.6,
+     "tmin_mean_c": 15.56
+    },
+    {
+     "diurnal_range_c": 16.52,
+     "month": 12,
+     "n_days": 310,
+     "tmax_mean_c": 27.21,
+     "tmax_p95_c": 31.09,
+     "tmean_c": 17.83,
+     "tmin_mean_c": 10.69
+    }
+   ]
+  },
+  "hot_humid": {
+   "elevation_m": 49,
+   "label": "Hot-humid (tropical coast side)",
+   "lat": 13.0,
+   "lon": 80.0,
+   "monthly": [
+    {
+     "diurnal_range_c": 6.9,
+     "month": 1,
+     "n_days": 310,
+     "tmax_mean_c": 28.2,
+     "tmax_p95_c": 29.78,
+     "tmean_c": 24.24,
+     "tmin_mean_c": 21.3
+    },
+    {
+     "diurnal_range_c": 8.95,
+     "month": 2,
+     "n_days": 283,
+     "tmax_mean_c": 30.7,
+     "tmax_p95_c": 33.44,
+     "tmean_c": 25.52,
+     "tmin_mean_c": 21.75
+    },
+    {
+     "diurnal_range_c": 10.43,
+     "month": 3,
+     "n_days": 310,
+     "tmax_mean_c": 34.46,
+     "tmax_p95_c": 37.11,
+     "tmean_c": 28.48,
+     "tmin_mean_c": 24.03
+    },
+    {
+     "diurnal_range_c": 10.12,
+     "month": 4,
+     "n_days": 300,
+     "tmax_mean_c": 36.6,
+     "tmax_p95_c": 39.16,
+     "tmean_c": 30.78,
+     "tmin_mean_c": 26.48
+    },
+    {
+     "diurnal_range_c": 8.32,
+     "month": 5,
+     "n_days": 310,
+     "tmax_mean_c": 36.02,
+     "tmax_p95_c": 39.99,
+     "tmean_c": 31.26,
+     "tmin_mean_c": 27.7
+    },
+    {
+     "diurnal_range_c": 7.99,
+     "month": 6,
+     "n_days": 300,
+     "tmax_mean_c": 34.83,
+     "tmax_p95_c": 37.94,
+     "tmean_c": 30.37,
+     "tmin_mean_c": 26.84
+    },
+    {
+     "diurnal_range_c": 7.78,
+     "month": 7,
+     "n_days": 310,
+     "tmax_mean_c": 33.81,
+     "tmax_p95_c": 36.96,
+     "tmean_c": 29.48,
+     "tmin_mean_c": 26.03
+    },
+    {
+     "diurnal_range_c": 7.15,
+     "month": 8,
+     "n_days": 310,
+     "tmax_mean_c": 32.87,
+     "tmax_p95_c": 35.99,
+     "tmean_c": 28.91,
+     "tmin_mean_c": 25.73
+    },
+    {
+     "diurnal_range_c": 6.4,
+     "month": 9,
+     "n_days": 300,
+     "tmax_mean_c": 31.75,
+     "tmax_p95_c": 34.6,
+     "tmean_c": 28.21,
+     "tmin_mean_c": 25.35
+    },
+    {
+     "diurnal_range_c": 5.64,
+     "month": 10,
+     "n_days": 310,
+     "tmax_mean_c": 30.72,
+     "tmax_p95_c": 33.55,
+     "tmean_c": 27.6,
+     "tmin_mean_c": 25.08
+    },
+    {
+     "diurnal_range_c": 4.8,
+     "month": 11,
+     "n_days": 300,
+     "tmax_mean_c": 29.0,
+     "tmax_p95_c": 31.62,
+     "tmean_c": 26.28,
+     "tmin_mean_c": 24.19
+    },
+    {
+     "diurnal_range_c": 5.41,
+     "month": 12,
+     "n_days": 310,
+     "tmax_mean_c": 27.95,
+     "tmax_p95_c": 29.33,
+     "tmean_c": 24.85,
+     "tmin_mean_c": 22.54
+    }
+   ]
+  }
+ }
+}

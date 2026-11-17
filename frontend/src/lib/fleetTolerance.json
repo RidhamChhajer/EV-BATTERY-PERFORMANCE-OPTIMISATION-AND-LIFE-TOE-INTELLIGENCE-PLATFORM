@@ -1,0 +1,47 @@
+{
+  "generated_by": "scripts/measure_fleet_tolerance.py",
+  "seed": 20261111,
+  "budget_months": 1.0,
+  "horizon_years": 20,
+  "metric": "worse of the 10th and 50th percentile life, months per unit of the input",
+  "base_points": {
+    "presets_used": 8,
+    "presets_total": 8,
+    "random_used": 35,
+    "random_total": 40,
+    "dropped": "a base point whose 10th or 50th percentile life is beyond the 20-year horizon is dropped, since its slope would be understated"
+  },
+  "slope_months_per_unit": {
+    "km_per_day": 1.4538,
+    "kwh_per_km": 297.0765,
+    "operating_days_per_year": 0.5573,
+    "soc_max_pct": 4.7993,
+    "soc_min_pct": 2.6673,
+    "charge_start_hour": 2.8092,
+    "departure_hour": 3.1062,
+    "charge_power_kw": 0.1256,
+    "heat_rise_c": 11.3366
+  },
+  "typical_months_per_unit": {
+    "km_per_day": 0.3549,
+    "kwh_per_km": 46.2017,
+    "operating_days_per_year": 0.1713,
+    "soc_max_pct": 1.4881,
+    "soc_min_pct": 0.0,
+    "charge_start_hour": 1.332,
+    "departure_hour": 1.7348,
+    "charge_power_kw": 0.0204,
+    "heat_rise_c": 6.5611
+  },
+  "step": {
+    "km_per_day": 0.5,
+    "kwh_per_km": 0.002,
+    "operating_days_per_year": 1.0,
+    "soc_max_pct": 0.2,
+    "soc_min_pct": 0.2,
+    "charge_start_hour": 0.2,
+    "departure_hour": 0.2,
+    "charge_power_kw": 5.0,
+    "heat_rise_c": 0.05
+  }
+}

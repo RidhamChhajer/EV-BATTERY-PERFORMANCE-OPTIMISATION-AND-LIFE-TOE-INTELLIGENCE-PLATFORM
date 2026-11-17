@@ -1,0 +1,22 @@
+{
+ "calendar_coverage": {
+  "coverage_condition_mean": 0.731285885999351,
+  "coverage_condition_min": 0.0,
+  "coverage_point_weighted": 0.795880149812734,
+  "log_ratio_mean": -0.00996054217520567,
+  "n_points": 5874,
+  "sigma_cal": 0.1958423587202476
+ },
+ "cycle_coverage": {
+  "coverage_cell_mean": 0.7280425805288397,
+  "coverage_cell_min": 0.0,
+  "coverage_point_weighted": 0.7251468348923211,
+  "n_cells": 77
+ },
+ "extrapolation_widening": 1.5,
+ "extrapolation_widening_note": "ASSUMPTION: sigma multiplied by 1.5 when inputs leave the training range",
+ "log_ratio_mean_cal": -0.00996054217520567,
+ "nominal_band": "p10-p90 (80 %)",
+ "sigma_cal": 0.1958423587202476,
+ "synthetic_data": false
+}

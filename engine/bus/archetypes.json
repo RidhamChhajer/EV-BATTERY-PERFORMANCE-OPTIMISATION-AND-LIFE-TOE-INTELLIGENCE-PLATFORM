@@ -1,0 +1,21 @@
+{
+  "note": "All values are design ranges from manufacturer/trade-press specs or plain assumptions (docs/business-case.md section 0.1). Replace with operator data when available.",
+  "archetypes": {
+    "12m": {
+      "label": "12 m low-floor city bus (primary)",
+      "pack_kwh": {"value": 350.0, "range": [280, 370], "source": "business-case 0.1: roughly 280-370 kWh for 12 m LFP city buses (manufacturer/trade press)", "evidence_level": "assumption"},
+      "kwh_per_km": {"value": 1.2, "range": [1.0, 1.4], "source": "business-case 0.1/3.3: Indian blog 1.38 kWh/km vs vendor claims 0.8-1.0 (indicative)", "evidence_level": "assumption"},
+      "km_per_day": {"value": 200.0, "range": [150, 250], "source": "business-case 0.1 GCC example of 200 km/bus/day", "evidence_level": "assumption"},
+      "charge_power_kw": {"value": 120.0, "range": [50, 240], "source": "business-case 0.1: 50-240 kW common, 150 kW example", "evidence_level": "assumption"},
+      "operating_days_per_year": {"value": 340.0, "range": [300, 365], "source": "assumption", "evidence_level": "assumption"}
+    },
+    "9m": {
+      "label": "9 m city bus (secondary)",
+      "pack_kwh": {"value": 250.0, "range": [190, 300], "source": "assumption inside the 190-420 kWh market range in business-case 0.1", "evidence_level": "assumption"},
+      "kwh_per_km": {"value": 0.9, "range": [0.7, 1.1], "source": "assumption scaled down from the 12 m value", "evidence_level": "assumption"},
+      "km_per_day": {"value": 180.0, "range": [120, 230], "source": "assumption", "evidence_level": "assumption"},
+      "charge_power_kw": {"value": 90.0, "range": [30, 150], "source": "assumption", "evidence_level": "assumption"},
+      "operating_days_per_year": {"value": 340.0, "range": [300, 365], "source": "assumption", "evidence_level": "assumption"}
+    }
+  }
+}

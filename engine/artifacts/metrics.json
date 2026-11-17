@@ -1,0 +1,203 @@
+{
+ "calendar_validation": {
+  "cross_lab": {
+   "naumann_to_stanford": {
+    "conditions": 6,
+    "mae_all": 0.03384532979091388,
+    "mae_within_train_horizon": 0.020772979370586125,
+    "n": 5028,
+    "train_horizon_days": 885.0416666666666
+   },
+   "stanford_to_naumann": {
+    "conditions": 6,
+    "mae_all": 0.02235701520437758,
+    "mae_within_train_horizon": 0.02235701520437758,
+    "n": 204,
+    "train_horizon_days": 2840.0
+   }
+  },
+  "loco_naumann": {
+   "max_mae": 0.040537960565565946,
+   "mean_mae": 0.01186864674325005,
+   "n_conditions": 17,
+   "worst": {
+    "soc_pct": 100.0,
+    "temp_c": 60.0
+   }
+  },
+  "loco_stanford": {
+   "max_mae": 0.05821348213369099,
+   "mean_mae": 0.025935757052528804,
+   "n_conditions": 8,
+   "worst": {
+    "soc_pct": 50.0,
+    "temp_c": 85.0
+   }
+  },
+  "overlap": "24.0-60.0 C, SOC (50.0, 100.0)",
+  "passes_threshold": true,
+  "threshold": 0.05
+ },
+ "calibration_demo": {
+  "caveat": "NMC-like field data, capacity labels derived by the dataset authors: a method demonstration, not a result for LFP buses.",
+  "chemistry": "not LFP (cell voltage reaches 4.29 V); method demonstration only",
+  "evaluation": "100 held-out rows per vehicle; the vendor's labelled rows are drawn from the vehicle's other rows; 3 random draws",
+  "mileage_only": {
+   "results": [
+    {
+     "n_labels": 0,
+     "no_pooling_mape": 2.4886876674360665,
+     "partial_pooling_mape": 2.4886876674360665,
+     "prior_mape": 2.4886876674360665,
+     "vehicles_not_worse_pct": 100.0
+    },
+    {
+     "n_labels": 5,
+     "no_pooling_mape": 1.5792955460523905,
+     "partial_pooling_mape": 1.5679040537472595,
+     "prior_mape": 2.4886876674360665,
+     "vehicles_not_worse_pct": 80.1418439716312
+    },
+    {
+     "n_labels": 20,
+     "no_pooling_mape": 1.466287090273107,
+     "partial_pooling_mape": 1.4658239423926263,
+     "prior_mape": 2.4886876674360665,
+     "vehicles_not_worse_pct": 87.47044917257683
+    },
+    {
+     "n_labels": 100,
+     "no_pooling_mape": 1.4350720087284168,
+     "partial_pooling_mape": 1.4350316175957085,
+     "prior_mape": 2.4886876674360665,
+     "vehicles_not_worse_pct": 89.36170212765957
+    }
+   ],
+   "sigma_ah": 0.8123090900852492,
+   "tau_ah": 1.194535491974346,
+   "vehicles_evaluated": 141
+  },
+  "rows": 45357,
+  "split": "5-fold, vehicles never shared between the fleet fit and the vehicle being calibrated",
+  "vehicles": 185,
+  "with_snippet_features": {
+   "results": [
+    {
+     "n_labels": 0,
+     "no_pooling_mape": 2.188758554368977,
+     "partial_pooling_mape": 2.188758554368977,
+     "prior_mape": 2.188758554368977,
+     "vehicles_not_worse_pct": 100.0
+    },
+    {
+     "n_labels": 5,
+     "no_pooling_mape": 1.5663821917702325,
+     "partial_pooling_mape": 1.5468313206036202,
+     "prior_mape": 2.188758554368977,
+     "vehicles_not_worse_pct": 75.41371158392435
+    },
+    {
+     "n_labels": 20,
+     "no_pooling_mape": 1.4450401525845322,
+     "partial_pooling_mape": 1.4442305508292357,
+     "prior_mape": 2.188758554368977,
+     "vehicles_not_worse_pct": 84.39716312056737
+    },
+    {
+     "n_labels": 100,
+     "no_pooling_mape": 1.415058118645847,
+     "partial_pooling_mape": 1.414655215989551,
+     "prior_mape": 2.188758554368977,
+     "vehicles_not_worse_pct": 87.70685579196218
+    }
+   ],
+   "sigma_ah": 0.8027278753427343,
+   "tau_ah": 0.9524034728292239,
+   "vehicles_evaluated": 141
+  }
+ },
+ "cycle_fit": {
+  "k_diagnostic": -0.9619290377823505,
+  "k_diagnostic_se": 0.37218826707673053,
+  "k_used": 0.0,
+  "m": 1.9136269826506358,
+  "n_cells": 77,
+  "rmse_pooled": 0.04700574865890234,
+  "rmse_shape": 0.009992002368728135,
+  "sigma_logB": 0.36736818083880957
+ },
+ "early_life": {
+  "candidates": [
+   {
+    "mape": 17.682,
+    "model": "mean only",
+    "n_features": 0,
+    "se": 1.541,
+    "within15": 48.052
+   },
+   {
+    "mape": 12.681,
+    "model": "ElasticNet capacity features",
+    "n_features": 4,
+    "se": 1.13,
+    "within15": 63.636
+   },
+   {
+    "mape": 13.606,
+    "model": "ElasticNet + dQ(V) all-discharge (Phase 0)",
+    "n_features": 8,
+    "se": 1.33,
+    "within15": 57.143
+   },
+   {
+    "mape": 12.711,
+    "model": "ElasticNet + dQ(V) discharge_3 step",
+    "n_features": 7,
+    "se": 1.166,
+    "within15": 64.935
+   },
+   {
+    "mape": 13.104,
+    "model": "GradientBoosting capacity features",
+    "n_features": 4,
+    "se": 1.31,
+    "within15": 63.636
+   }
+  ],
+  "improvement_ci95": [
+   2.557267167827879,
+   7.756407413053896
+  ],
+  "improvement_vs_mean_pct_points": 5.000264179286365,
+  "winner": "ElasticNet capacity features"
+ },
+ "evbattery_capacity": {
+  "caveat": "Error against the dataset's own derived capacity label, not against measured ground truth.",
+  "chemistry": "not LFP (cell voltage reaches 4.29 V); method demonstration only",
+  "mileage_only": {
+   "mape": 2.5045450134441696,
+   "within5": 88.96833333333333
+  },
+  "snippet_features": {
+   "mape": 2.297281587306671,
+   "within5": 90.41833333333334
+  },
+  "split": "5-fold, vehicles never shared between train and test"
+ },
+ "uncertainty": {
+  "calendar": {
+   "coverage_condition_mean": 0.731285885999351,
+   "coverage_condition_min": 0.0,
+   "coverage_point_weighted": 0.795880149812734,
+   "log_ratio_mean": -0.00996054217520567,
+   "n_points": 5874,
+   "sigma_cal": 0.1958423587202476
+  },
+  "cycle": {
+   "coverage_cell_mean": 0.7280425805288397,
+   "coverage_cell_min": 0.0,
+   "coverage_point_weighted": 0.7251468348923211,
+   "n_cells": 77
+  }
+ }
+}

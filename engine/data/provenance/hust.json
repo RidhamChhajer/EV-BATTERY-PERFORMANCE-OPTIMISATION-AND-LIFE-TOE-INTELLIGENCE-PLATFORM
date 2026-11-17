@@ -1,0 +1,11 @@
+{
+  "file": "data/hust/our_data.zip",
+  "licence": "CC BY 4.0",
+  "limitations": "77 A123 LFP 1.1 Ah cells, 30 C, one batch, varied charge protocols; no temperature variation",
+  "retrieved_for_project": "2026-11-07",
+  "rows_cells": 77,
+  "rows_cycles": 146122,
+  "sha256": "071d24617153693b0d29059568525e620f6af6512acc9d00c98c7adcf15125db",
+  "source_url": "https://data.mendeley.com/datasets/nsc7hnsg4s",
+  "synthetic": false
+}

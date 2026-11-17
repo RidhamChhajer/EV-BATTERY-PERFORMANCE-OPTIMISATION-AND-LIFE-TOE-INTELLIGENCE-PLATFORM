@@ -1,0 +1,42 @@
+Pack Horizon's reference engine (engine/reference/blast_lfp.py) is a re-implementation, in vectorised form, of the
+two lithium iron phosphate degradation models in NREL's BLAST-Lite:
+
+  Lfp_Gr_250AhPrismatic          (models/lfp_gr_250AhPrismatic_2019.py)
+  Lfp_Gr_SonyMurata3Ah_Battery   (models/lfp_gr_SonyMurata3Ah_2018.py)
+
+together with its graphite half-cell potential function and its power-law, sigmoid and power-B state updates
+(models/degradation_model.py). The fitted parameter values and the equations come from BLAST-Lite.
+Source: https://github.com/NatLabRockies/BLAST-Lite (formerly NREL/BLAST-Lite), version 1.1.3.
+
+The licence text below is reproduced as required by clause 1 of the BSD 3-Clause licence that accompanies BLAST-Lite.
+The name of the copyright holder and of its contributors is not used to endorse or promote this software.
+
+--------------------------------------------------------------------------------------------------------------------
+
+Copyright (c) 2023, Alliance for Energy Innovation, LLC
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

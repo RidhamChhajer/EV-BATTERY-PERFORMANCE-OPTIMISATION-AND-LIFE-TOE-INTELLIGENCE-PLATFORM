@@ -1,0 +1,12 @@
+{
+  "chemistry": "NMC-like, NOT LFP (cell voltage up to 4.29 V); undisclosed by authors",
+  "file": "data/evbattery/battery_dataset1.tar.gz",
+  "licence": "CC BY 4.0",
+  "limitations": "values perturbed by authors; capacity labels derived, not measured; 1270 s snippets",
+  "retrieved_for_project": "2026-11-07",
+  "sha256": "bf56f38ef1f0c96bb184f085f261f72092d16366c5efb7264df55e68fba16be5",
+  "snippets": 1278277,
+  "source_url": "https://figshare.com/articles/dataset/23301881",
+  "synthetic": false,
+  "vehicles": 464
+}

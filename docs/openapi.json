@@ -1,0 +1,2638 @@
+{
+  "components": {
+    "schemas": {
+      "CellConditions": {
+        "properties": {
+          "c_rate_eff": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "calendar_equivalent_soc_pct": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "charge_hours": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "efc_per_day": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "efc_per_year": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "effective_temp_c": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "energy_per_day_kwh": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "idle_hours_at_soc_max": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "mean_soc_pct": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "monthly_cell_temp_c": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "pack_penalty_max": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "pack_penalty_min": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "usable_kwh": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "energy_per_day_kwh",
+          "usable_kwh",
+          "efc_per_day",
+          "efc_per_year",
+          "mean_soc_pct",
+          "calendar_equivalent_soc_pct",
+          "idle_hours_at_soc_max",
+          "charge_hours",
+          "c_rate_eff",
+          "effective_temp_c",
+          "monthly_cell_temp_c",
+          "pack_penalty_min",
+          "pack_penalty_max",
+          "warnings"
+        ],
+        "title": "CellConditions",
+        "type": "object"
+      },
+      "ClassSummary": {
+        "properties": {
+          "battery_cost_per_km_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "electricity_cost_per_km": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "extrapolation_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Extrapolation Reasons",
+            "type": "array"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "km_per_year": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "months_p10": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_p90": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "n_buses": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "total_cost_per_km_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "n_buses",
+          "months_p10",
+          "months_p50",
+          "months_p90",
+          "km_per_year",
+          "battery_cost_per_km_p50",
+          "electricity_cost_per_km",
+          "total_cost_per_km_p50",
+          "extrapolation_reasons",
+          "warnings"
+        ],
+        "title": "ClassSummary",
+        "type": "object"
+      },
+      "CohortSummary": {
+        "description": "Buses of one duty class and one age. `months_to_line_*` count from today and are conditional on the bus still being in service;\nthey are percentiles of the model's runs, which for a new pack can differ from the Replacement page's headline (that one is the\ncrossing of the percentile curves).",
+        "properties": {
+          "age_months": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "chance_due_next_12_months": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "class_id": {
+            "title": "Class Id",
+            "type": "string"
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Flags",
+            "type": "array"
+          },
+          "months_to_line_p10": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_to_line_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_to_line_p90": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "n_buses": {
+            "$ref": "#/components/schemas/Labelled"
+          }
+        },
+        "required": [
+          "class_id",
+          "age_months",
+          "n_buses",
+          "months_to_line_p10",
+          "months_to_line_p50",
+          "months_to_line_p90",
+          "chance_due_next_12_months",
+          "flags"
+        ],
+        "title": "CohortSummary",
+        "type": "object"
+      },
+      "CompareRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "mode": {
+            "default": "prior",
+            "description": "Only 'prior' exists in v1; anything else gets a 400",
+            "title": "Mode",
+            "type": "string"
+          },
+          "n_draws": {
+            "default": 2000,
+            "maximum": 5000.0,
+            "minimum": 200.0,
+            "title": "N Draws",
+            "type": "integer"
+          },
+          "scenarios": {
+            "description": "first scenario is the base; the rest are variants",
+            "items": {
+              "$ref": "#/components/schemas/Scenario"
+            },
+            "maxItems": 4,
+            "minItems": 2,
+            "title": "Scenarios",
+            "type": "array"
+          },
+          "seed": {
+            "default": 0,
+            "maximum": 2147483647.0,
+            "minimum": 0.0,
+            "title": "Seed",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "scenarios"
+        ],
+        "title": "CompareRequest",
+        "type": "object"
+      },
+      "CompareResult": {
+        "properties": {
+          "deltas": {
+            "description": "variant minus base, one per variant (months to threshold)",
+            "items": {
+              "$ref": "#/components/schemas/Delta"
+            },
+            "title": "Deltas",
+            "type": "array"
+          },
+          "disclaimer": {
+            "default": "Prior mode: capacity curves come from published laboratory-fitted LFP cell models (NREL BLAST-Lite) and scenario inputs are assumptions. Nothing here has been validated on buses.",
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "mode": {
+            "const": "prior",
+            "default": "prior",
+            "title": "Mode",
+            "type": "string"
+          },
+          "model_version": {
+            "title": "Model Version",
+            "type": "string"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          },
+          "replacements": {
+            "description": "aligned with `scenarios`; computed on shared random draws",
+            "items": {
+              "$ref": "#/components/schemas/ReplacementResult"
+            },
+            "title": "Replacements",
+            "type": "array"
+          },
+          "scenarios": {
+            "items": {
+              "$ref": "#/components/schemas/Scenario"
+            },
+            "title": "Scenarios",
+            "type": "array"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "model_version",
+          "scenarios",
+          "replacements",
+          "deltas",
+          "notes",
+          "warnings"
+        ],
+        "title": "CompareResult",
+        "type": "object"
+      },
+      "CostResult": {
+        "properties": {
+          "battery_cost": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "censored_fraction": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "cost_per_km_p10": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "cost_per_km_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "cost_per_km_p90": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "electricity": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ElectricityResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lifetime_km_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tornado": {
+            "items": {
+              "$ref": "#/components/schemas/TornadoBar"
+            },
+            "title": "Tornado",
+            "type": "array"
+          },
+          "total_cost_per_km_p10": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "total_cost_per_km_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "total_cost_per_km_p90": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "cost_per_km_p10",
+          "cost_per_km_p50",
+          "cost_per_km_p90",
+          "battery_cost",
+          "lifetime_km_p50",
+          "censored_fraction",
+          "tornado",
+          "warnings"
+        ],
+        "title": "CostResult",
+        "type": "object"
+      },
+      "Delta": {
+        "properties": {
+          "censored_note": {
+            "title": "Censored Note",
+            "type": "string"
+          },
+          "months_p10": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "months_p50": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "months_p90": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "p90_beyond_horizon": {
+            "default": false,
+            "title": "P90 Beyond Horizon",
+            "type": "boolean"
+          },
+          "prob_variant_later": {
+            "$ref": "#/components/schemas/Labelled"
+          }
+        },
+        "required": [
+          "months_p10",
+          "months_p50",
+          "months_p90",
+          "prob_variant_later",
+          "censored_note"
+        ],
+        "title": "Delta",
+        "type": "object"
+      },
+      "DeltaVsBase": {
+        "properties": {
+          "cost_per_km_change": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_p10": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "months_p50": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "months_p90": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "p90_beyond_horizon": {
+            "default": false,
+            "title": "P90 Beyond Horizon",
+            "type": "boolean"
+          },
+          "prob_later": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "range_change_km": {
+            "$ref": "#/components/schemas/Labelled"
+          }
+        },
+        "required": [
+          "months_p10",
+          "months_p50",
+          "months_p90",
+          "prob_later",
+          "cost_per_km_change",
+          "range_change_km",
+          "note"
+        ],
+        "title": "DeltaVsBase",
+        "type": "object"
+      },
+      "DriverSplit": {
+        "properties": {
+          "calendar_share": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "cycling_share": {
+            "$ref": "#/components/schemas/Labelled"
+          }
+        },
+        "required": [
+          "calendar_share",
+          "cycling_share"
+        ],
+        "title": "DriverSplit",
+        "type": "object"
+      },
+      "ElectricityResult": {
+        "properties": {
+          "charge_window": {
+            "title": "Charge Window",
+            "type": "string"
+          },
+          "cost_per_km": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "energy_charge_inr_per_kwh": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "grid_kwh_per_km": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "price_inr_per_kwh": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "tariff": {
+            "title": "Tariff",
+            "type": "string"
+          },
+          "tod_change_pct": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "wheeling_charge_inr_per_kwh": {
+            "$ref": "#/components/schemas/Labelled"
+          }
+        },
+        "required": [
+          "tariff",
+          "price_inr_per_kwh",
+          "energy_charge_inr_per_kwh",
+          "wheeling_charge_inr_per_kwh",
+          "tod_change_pct",
+          "cost_per_km",
+          "grid_kwh_per_km",
+          "charge_window",
+          "note"
+        ],
+        "title": "ElectricityResult",
+        "type": "object"
+      },
+      "Feasibility": {
+        "properties": {
+          "base_margin": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "base_passes": {
+            "title": "Base Passes",
+            "type": "boolean"
+          },
+          "base_range_at_replacement_km": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "plain": {
+            "title": "Plain",
+            "type": "string"
+          },
+          "required_range_km": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "reserve": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "rule_applied": {
+            "title": "Rule Applied",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reserve",
+          "required_range_km",
+          "base_range_at_replacement_km",
+          "base_margin",
+          "base_passes",
+          "rule_applied",
+          "plain"
+        ],
+        "title": "Feasibility",
+        "type": "object"
+      },
+      "FleetBus": {
+        "additionalProperties": false,
+        "properties": {
+          "class_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Class Id",
+            "type": "string"
+          },
+          "id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "in_service": {
+            "anyOf": [
+              {
+                "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "YYYY-MM the pack entered service; omit if unknown (the bus is then counted as new and flagged)",
+            "title": "In Service"
+          },
+          "pack_price_inr": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "maximum": 100000000.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "this bus's pack price; defaults to the class's pack kWh x price per kWh",
+            "title": "Pack Price Inr"
+          }
+        },
+        "required": [
+          "id",
+          "class_id"
+        ],
+        "title": "FleetBus",
+        "type": "object"
+      },
+      "FleetClass": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "the caller's name for this duty class",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Id",
+            "type": "string"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/Scenario",
+            "description": "how the buses of this class are driven; its own horizon is replaced by 20 years"
+          }
+        },
+        "required": [
+          "id",
+          "scenario"
+        ],
+        "title": "FleetClass",
+        "type": "object"
+      },
+      "FleetCost": {
+        "properties": {
+          "battery_cost_per_km_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "electricity_cost_per_km": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "total_cost_per_km_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "battery_cost_per_km_p50",
+          "electricity_cost_per_km",
+          "total_cost_per_km_p50"
+        ],
+        "title": "FleetCost",
+        "type": "object"
+      },
+      "FleetReportRequest": {
+        "additionalProperties": false,
+        "description": "The same body as /fleet, plus an optional name for the cover. The server forecasts the fleet itself; depots and routes never reach it, so they are not in the document.",
+        "properties": {
+          "as_of": {
+            "description": "forecast from this month; financial years run April to March",
+            "format": "date",
+            "title": "As Of",
+            "type": "string"
+          },
+          "buses": {
+            "items": {
+              "$ref": "#/components/schemas/FleetBus"
+            },
+            "maxItems": 5000,
+            "minItems": 1,
+            "title": "Buses",
+            "type": "array"
+          },
+          "classes": {
+            "items": {
+              "$ref": "#/components/schemas/FleetClass"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Classes",
+            "type": "array"
+          },
+          "forecast_years": {
+            "default": 10,
+            "description": "the oldest bus's age plus this window must fit inside the model's 20-year horizon",
+            "maximum": 15.0,
+            "minimum": 1.0,
+            "title": "Forecast Years",
+            "type": "integer"
+          },
+          "mode": {
+            "default": "prior",
+            "description": "Only 'prior' exists in v1; anything else gets a 400",
+            "title": "Mode",
+            "type": "string"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "shown on the cover",
+            "title": "Name"
+          }
+        },
+        "required": [
+          "classes",
+          "buses"
+        ],
+        "title": "FleetReportRequest",
+        "type": "object"
+      },
+      "FleetRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "as_of": {
+            "description": "forecast from this month; financial years run April to March",
+            "format": "date",
+            "title": "As Of",
+            "type": "string"
+          },
+          "buses": {
+            "items": {
+              "$ref": "#/components/schemas/FleetBus"
+            },
+            "maxItems": 5000,
+            "minItems": 1,
+            "title": "Buses",
+            "type": "array"
+          },
+          "classes": {
+            "items": {
+              "$ref": "#/components/schemas/FleetClass"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Classes",
+            "type": "array"
+          },
+          "forecast_years": {
+            "default": 10,
+            "description": "the oldest bus's age plus this window must fit inside the model's 20-year horizon",
+            "maximum": 15.0,
+            "minimum": 1.0,
+            "title": "Forecast Years",
+            "type": "integer"
+          },
+          "mode": {
+            "default": "prior",
+            "description": "Only 'prior' exists in v1; anything else gets a 400",
+            "title": "Mode",
+            "type": "string"
+          }
+        },
+        "required": [
+          "classes",
+          "buses"
+        ],
+        "title": "FleetRequest",
+        "type": "object"
+      },
+      "FleetResponse": {
+        "properties": {
+          "as_of": {
+            "title": "As Of",
+            "type": "string"
+          },
+          "beyond_forecast_buses": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "bulk_from_period": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bulk From Period"
+          },
+          "bulk_to_period": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bulk To Period"
+          },
+          "buses_expected": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "buses_p10": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "buses_p90": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "classes": {
+            "items": {
+              "$ref": "#/components/schemas/ClassSummary"
+            },
+            "title": "Classes",
+            "type": "array"
+          },
+          "cohorts": {
+            "items": {
+              "$ref": "#/components/schemas/CohortSummary"
+            },
+            "title": "Cohorts",
+            "type": "array"
+          },
+          "cost": {
+            "$ref": "#/components/schemas/FleetCost"
+          },
+          "disclaimer": {
+            "default": "Prior mode: capacity curves come from published laboratory-fitted LFP cell models (NREL BLAST-Lite) and scenario inputs are assumptions. Nothing here has been validated on buses.",
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "mode": {
+            "const": "prior",
+            "default": "prior",
+            "title": "Mode",
+            "type": "string"
+          },
+          "model_version": {
+            "title": "Model Version",
+            "type": "string"
+          },
+          "model_weights": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "period_edges_months": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "period_labels": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Period Labels",
+            "type": "array"
+          },
+          "spend_expected": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "spend_p10": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "spend_p90": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "as_of",
+          "period_labels",
+          "period_edges_months",
+          "buses_expected",
+          "buses_p10",
+          "buses_p90",
+          "spend_expected",
+          "spend_p10",
+          "spend_p90",
+          "beyond_forecast_buses",
+          "bulk_from_period",
+          "bulk_to_period",
+          "cost",
+          "classes",
+          "cohorts",
+          "model_weights",
+          "warnings",
+          "model_version"
+        ],
+        "title": "FleetResponse",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "Labelled": {
+        "description": "A number (or list of numbers) with its unit and what it rests on.\n\nlab        = fitted on public laboratory data (never validated on buses)\nassumption = a scenario input or default with no data behind it for buses\nderived    = computed from the above; inherits the weakest evidence of its inputs",
+        "properties": {
+          "evidence_level": {
+            "enum": [
+              "lab",
+              "assumption",
+              "derived"
+            ],
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "note": {
+            "default": "",
+            "title": "Note",
+            "type": "string"
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          },
+          "validated_on_buses": {
+            "const": false,
+            "default": false,
+            "title": "Validated On Buses",
+            "type": "boolean"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "evidence_level"
+        ],
+        "title": "Labelled",
+        "type": "object"
+      },
+      "LeverChange": {
+        "properties": {
+          "from_value": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "lever": {
+            "title": "Lever",
+            "type": "string"
+          },
+          "needs_confirmation": {
+            "title": "Needs Confirmation",
+            "type": "boolean"
+          },
+          "to_value": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          },
+          "why": {
+            "title": "Why",
+            "type": "string"
+          }
+        },
+        "required": [
+          "lever",
+          "label",
+          "unit",
+          "from_value",
+          "to_value",
+          "needs_confirmation",
+          "why"
+        ],
+        "title": "LeverChange",
+        "type": "object"
+      },
+      "LoginRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "password": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Password",
+            "type": "string"
+          },
+          "username": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Username",
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ],
+        "title": "LoginRequest",
+        "type": "object"
+      },
+      "LoginResponse": {
+        "properties": {
+          "access_token": {
+            "title": "Access Token",
+            "type": "string"
+          },
+          "expires_in": {
+            "description": "seconds",
+            "title": "Expires In",
+            "type": "integer"
+          },
+          "token_type": {
+            "const": "bearer",
+            "default": "bearer",
+            "title": "Token Type",
+            "type": "string"
+          },
+          "username": {
+            "title": "Username",
+            "type": "string"
+          }
+        },
+        "required": [
+          "access_token",
+          "expires_in",
+          "username"
+        ],
+        "title": "LoginResponse",
+        "type": "object"
+      },
+      "Metrics": {
+        "properties": {
+          "calendar_equivalent_soc_pct": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "cost_per_km_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "effective_temp_c": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "idle_hours_at_full": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "months_p10": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_p90": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "range_at_replacement_km": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "range_margin": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "range_new_km": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "retention_p10": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "retention_p50": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "retention_p90": {
+            "$ref": "#/components/schemas/Labelled"
+          }
+        },
+        "required": [
+          "months_p10",
+          "months_p50",
+          "months_p90",
+          "retention_p10",
+          "retention_p50",
+          "retention_p90",
+          "cost_per_km_p50",
+          "range_new_km",
+          "range_at_replacement_km",
+          "range_margin",
+          "idle_hours_at_full",
+          "calendar_equivalent_soc_pct",
+          "effective_temp_c"
+        ],
+        "title": "Metrics",
+        "type": "object"
+      },
+      "NotUsed": {
+        "properties": {
+          "effect_months": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lever": {
+            "title": "Lever",
+            "type": "string"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "lever",
+          "reason"
+        ],
+        "title": "NotUsed",
+        "type": "object"
+      },
+      "PredictRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "mode": {
+            "default": "prior",
+            "description": "Only 'prior' exists in v1; anything else gets a 400",
+            "title": "Mode",
+            "type": "string"
+          },
+          "n_draws": {
+            "default": 2000,
+            "description": "Monte Carlo draws (lab engine only; the default reference engine runs a fixed 50-run ensemble and ignores n_draws and seed)",
+            "maximum": 5000.0,
+            "minimum": 200.0,
+            "title": "N Draws",
+            "type": "integer"
+          },
+          "range_temperature_mode": {
+            "default": "none",
+            "enum": [
+              "none",
+              "datasheet_example"
+            ],
+            "title": "Range Temperature Mode",
+            "type": "string"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/Scenario"
+          },
+          "seed": {
+            "default": 0,
+            "description": "Lab engine only; ignored by the reference engine, which has nothing random",
+            "maximum": 2147483647.0,
+            "minimum": 0.0,
+            "title": "Seed",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "scenario"
+        ],
+        "title": "PredictRequest",
+        "type": "object"
+      },
+      "PredictionResult": {
+        "properties": {
+          "conditions": {
+            "$ref": "#/components/schemas/CellConditions"
+          },
+          "cost": {
+            "$ref": "#/components/schemas/CostResult"
+          },
+          "disclaimer": {
+            "default": "Prior mode: capacity curves come from published laboratory-fitted LFP cell models (NREL BLAST-Lite) and scenario inputs are assumptions. Nothing here has been validated on buses.",
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "driver_split": {
+            "$ref": "#/components/schemas/DriverSplit"
+          },
+          "mode": {
+            "const": "prior",
+            "default": "prior",
+            "title": "Mode",
+            "type": "string"
+          },
+          "model_version": {
+            "title": "Model Version",
+            "type": "string"
+          },
+          "range": {
+            "$ref": "#/components/schemas/RangeResult"
+          },
+          "replacement": {
+            "$ref": "#/components/schemas/ReplacementResult"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/Scenario"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "model_version",
+          "scenario",
+          "conditions",
+          "replacement",
+          "range",
+          "cost",
+          "driver_split",
+          "warnings"
+        ],
+        "title": "PredictionResult",
+        "type": "object"
+      },
+      "PresetResult": {
+        "properties": {
+          "charging": {
+            "$ref": "#/components/schemas/Stage"
+          },
+          "goal": {
+            "title": "Goal",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "range_budget": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "rejected": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Rejected",
+            "type": "array"
+          },
+          "same_as": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Same As"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "with_confirmation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Stage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "goal",
+          "range_budget",
+          "charging",
+          "with_confirmation",
+          "rejected"
+        ],
+        "title": "PresetResult",
+        "type": "object"
+      },
+      "RangeResult": {
+        "properties": {
+          "ages_years": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Ages Years",
+            "type": "array"
+          },
+          "new_pack_range_km": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "range_km_p10": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Labelled"
+            },
+            "title": "Range Km P10",
+            "type": "object"
+          },
+          "range_km_p50": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Labelled"
+            },
+            "title": "Range Km P50",
+            "type": "object"
+          },
+          "temperature_factor_mode": {
+            "title": "Temperature Factor Mode",
+            "type": "string"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "ages_years",
+          "range_km_p50",
+          "range_km_p10",
+          "new_pack_range_km",
+          "temperature_factor_mode",
+          "warnings"
+        ],
+        "title": "RangeResult",
+        "type": "object"
+      },
+      "RecommendRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "mode": {
+            "default": "prior",
+            "description": "Only 'prior' exists in v1; anything else gets a 400",
+            "title": "Mode",
+            "type": "string"
+          },
+          "n_draws": {
+            "default": 2000,
+            "maximum": 5000.0,
+            "minimum": 200.0,
+            "title": "N Draws",
+            "type": "integer"
+          },
+          "reserve_fraction": {
+            "default": 0.2,
+            "description": "safety reserve on the daily route, at replacement time",
+            "maximum": 0.5,
+            "minimum": 0.0,
+            "title": "Reserve Fraction",
+            "type": "number"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/Scenario",
+            "description": "Bus A: the client's current usage"
+          },
+          "seed": {
+            "default": 0,
+            "maximum": 2147483647.0,
+            "minimum": 0.0,
+            "title": "Seed",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "scenario"
+        ],
+        "title": "RecommendRequest",
+        "type": "object"
+      },
+      "RecommendResponse": {
+        "properties": {
+          "base": {
+            "$ref": "#/components/schemas/Metrics"
+          },
+          "disclaimer": {
+            "default": "Prior mode: capacity curves come from published laboratory-fitted LFP cell models (NREL BLAST-Lite) and scenario inputs are assumptions. Nothing here has been validated on buses.",
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "feasibility": {
+            "$ref": "#/components/schemas/Feasibility"
+          },
+          "mode": {
+            "default": "prior",
+            "title": "Mode",
+            "type": "string"
+          },
+          "model_version": {
+            "title": "Model Version",
+            "type": "string"
+          },
+          "months": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Months",
+            "type": "array"
+          },
+          "not_used": {
+            "items": {
+              "$ref": "#/components/schemas/NotUsed"
+            },
+            "title": "Not Used",
+            "type": "array"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          },
+          "presets": {
+            "items": {
+              "$ref": "#/components/schemas/PresetResult"
+            },
+            "title": "Presets",
+            "type": "array"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/Scenario"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "scenario",
+          "base",
+          "feasibility",
+          "presets",
+          "not_used",
+          "months",
+          "notes",
+          "warnings",
+          "model_version"
+        ],
+        "title": "RecommendResponse",
+        "type": "object"
+      },
+      "ReplacementResult": {
+        "properties": {
+          "calendar_share_of_loss": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "extrapolated": {
+            "title": "Extrapolated",
+            "type": "boolean"
+          },
+          "extrapolation_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Extrapolation Reasons",
+            "type": "array"
+          },
+          "mode": {
+            "default": "prior",
+            "title": "Mode",
+            "type": "string"
+          },
+          "months": {
+            "items": {
+              "type": "number"
+            },
+            "title": "Months",
+            "type": "array"
+          },
+          "months_p10": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_p50": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "months_p90": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Labelled"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "probability_by_month": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "probability_within_horizon": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "retention_p10": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "retention_p50": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "retention_p90": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "threshold": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "months_p10",
+          "months_p50",
+          "months_p90",
+          "probability_by_month",
+          "probability_within_horizon",
+          "calendar_share_of_loss",
+          "retention_p10",
+          "retention_p50",
+          "retention_p90",
+          "months",
+          "threshold",
+          "extrapolated",
+          "extrapolation_reasons",
+          "warnings"
+        ],
+        "title": "ReplacementResult",
+        "type": "object"
+      },
+      "ReportEmailRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "fleet_size": {
+            "default": 50,
+            "description": "buses, only used to scale the money line",
+            "maximum": 5000.0,
+            "minimum": 1.0,
+            "title": "Fleet Size",
+            "type": "integer"
+          },
+          "scenario_a": {
+            "$ref": "#/components/schemas/Scenario"
+          },
+          "scenario_b": {
+            "$ref": "#/components/schemas/Scenario"
+          },
+          "to": {
+            "description": "one recipient address",
+            "maxLength": 254,
+            "minLength": 3,
+            "title": "To",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_a",
+          "scenario_b",
+          "to"
+        ],
+        "title": "ReportEmailRequest",
+        "type": "object"
+      },
+      "ReportRequest": {
+        "additionalProperties": false,
+        "description": "Two scenarios to compare in the report. The server runs the model itself; nothing the client sends ends up in the document except these inputs.",
+        "properties": {
+          "fleet_size": {
+            "default": 50,
+            "description": "buses, only used to scale the money line",
+            "maximum": 5000.0,
+            "minimum": 1.0,
+            "title": "Fleet Size",
+            "type": "integer"
+          },
+          "scenario_a": {
+            "$ref": "#/components/schemas/Scenario"
+          },
+          "scenario_b": {
+            "$ref": "#/components/schemas/Scenario"
+          }
+        },
+        "required": [
+          "scenario_a",
+          "scenario_b"
+        ],
+        "title": "ReportRequest",
+        "type": "object"
+      },
+      "ReportSent": {
+        "properties": {
+          "sent": {
+            "const": true,
+            "default": true,
+            "title": "Sent",
+            "type": "boolean"
+          },
+          "to": {
+            "description": "the address with its name part masked",
+            "title": "To",
+            "type": "string"
+          }
+        },
+        "required": [
+          "to"
+        ],
+        "title": "ReportSent",
+        "type": "object"
+      },
+      "ReportStatus": {
+        "properties": {
+          "email_enabled": {
+            "title": "Email Enabled",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "email_enabled"
+        ],
+        "title": "ReportStatus",
+        "type": "object"
+      },
+      "Scenario": {
+        "additionalProperties": false,
+        "properties": {
+          "archetype": {
+            "default": "12m",
+            "enum": [
+              "12m",
+              "9m"
+            ],
+            "title": "Archetype",
+            "type": "string"
+          },
+          "battery_cost_per_kwh_inr": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Battery Cost Per Kwh Inr"
+          },
+          "charge_power_kw": {
+            "exclusiveMinimum": 1.0,
+            "maximum": 500.0,
+            "title": "Charge Power Kw",
+            "type": "number"
+          },
+          "charge_start_hour": {
+            "default": 22.0,
+            "exclusiveMaximum": 24.0,
+            "minimum": 0.0,
+            "title": "Charge Start Hour",
+            "type": "number"
+          },
+          "charger_efficiency": {
+            "default": 0.92,
+            "description": "ASSUMED share of grid energy that reaches the battery (charger and cable losses)",
+            "maximum": 1.0,
+            "minimum": 0.7,
+            "title": "Charger Efficiency",
+            "type": "number"
+          },
+          "departure_hour": {
+            "default": 5.0,
+            "exclusiveMaximum": 24.0,
+            "minimum": 0.0,
+            "title": "Departure Hour",
+            "type": "number"
+          },
+          "electricity_custom_inr_per_kwh": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "maximum": 50.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "All-in price per kWh, used only when electricity_tariff is 'custom'",
+            "title": "Electricity Custom Inr Per Kwh"
+          },
+          "electricity_tariff": {
+            "default": "none",
+            "description": "Electricity tariff the operator pays; 'none' leaves electricity out of the cost per km",
+            "enum": [
+              "none",
+              "msedcl_ht_ix",
+              "msedcl_lt_viii",
+              "custom"
+            ],
+            "title": "Electricity Tariff",
+            "type": "string"
+          },
+          "heat_rise_c": {
+            "default": 3.0,
+            "description": "ASSUMED average cell temperature above ambient",
+            "maximum": 20.0,
+            "minimum": 0.0,
+            "title": "Heat Rise C",
+            "type": "number"
+          },
+          "horizon_years": {
+            "default": 15,
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Horizon Years",
+            "type": "integer"
+          },
+          "km_per_day": {
+            "exclusiveMinimum": 0.0,
+            "maximum": 700.0,
+            "title": "Km Per Day",
+            "type": "number"
+          },
+          "kwh_per_km": {
+            "exclusiveMinimum": 0.2,
+            "maximum": 3.0,
+            "title": "Kwh Per Km",
+            "type": "number"
+          },
+          "operating_days_per_year": {
+            "exclusiveMinimum": 50.0,
+            "maximum": 366.0,
+            "title": "Operating Days Per Year",
+            "type": "number"
+          },
+          "pack_kwh": {
+            "description": "nominal pack energy, kWh",
+            "exclusiveMinimum": 20.0,
+            "maximum": 700.0,
+            "title": "Pack Kwh",
+            "type": "number"
+          },
+          "pack_penalty_max": {
+            "default": 0.3,
+            "maximum": 0.5,
+            "minimum": 0.0,
+            "title": "Pack Penalty Max",
+            "type": "number"
+          },
+          "pack_penalty_min": {
+            "default": 0.2,
+            "description": "ASSUMED weakest-cell earlier-end-of-life fraction (NREL: pack life is 20-30 % shorter than cell life)",
+            "maximum": 0.5,
+            "minimum": 0.0,
+            "title": "Pack Penalty Min",
+            "type": "number"
+          },
+          "soc_max_pct": {
+            "default": 100.0,
+            "maximum": 100.0,
+            "minimum": 40.0,
+            "title": "Soc Max Pct",
+            "type": "number"
+          },
+          "soc_min_pct": {
+            "default": 10.0,
+            "maximum": 60.0,
+            "minimum": 0.0,
+            "title": "Soc Min Pct",
+            "type": "number"
+          },
+          "threshold": {
+            "default": 0.8,
+            "description": "replace when retention falls to this",
+            "exclusiveMaximum": 0.95,
+            "exclusiveMinimum": 0.5,
+            "title": "Threshold",
+            "type": "number"
+          },
+          "zone": {
+            "default": "hot_dry",
+            "enum": [
+              "hot_dry",
+              "hot_humid",
+              "composite",
+              "cool"
+            ],
+            "title": "Zone",
+            "type": "string"
+          }
+        },
+        "required": [
+          "pack_kwh",
+          "kwh_per_km",
+          "km_per_day",
+          "operating_days_per_year",
+          "charge_power_kw"
+        ],
+        "title": "Scenario",
+        "type": "object"
+      },
+      "Stage": {
+        "properties": {
+          "changes": {
+            "items": {
+              "$ref": "#/components/schemas/LeverChange"
+            },
+            "title": "Changes",
+            "type": "array"
+          },
+          "delta": {
+            "$ref": "#/components/schemas/DeltaVsBase"
+          },
+          "feasible": {
+            "title": "Feasible",
+            "type": "boolean"
+          },
+          "metrics": {
+            "$ref": "#/components/schemas/Metrics"
+          },
+          "scenario": {
+            "$ref": "#/components/schemas/Scenario"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario",
+          "changes",
+          "metrics",
+          "delta",
+          "feasible",
+          "summary"
+        ],
+        "title": "Stage",
+        "type": "object"
+      },
+      "TornadoBar": {
+        "properties": {
+          "base": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "high_case": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "input": {
+            "title": "Input",
+            "type": "string"
+          },
+          "low_case": {
+            "$ref": "#/components/schemas/Labelled"
+          },
+          "swing": {
+            "$ref": "#/components/schemas/Labelled"
+          }
+        },
+        "required": [
+          "input",
+          "low_case",
+          "high_case",
+          "swing",
+          "base"
+        ],
+        "title": "TornadoBar",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "scheme": "bearer",
+        "type": "http"
+      }
+    }
+  },
+  "info": {
+    "description": "Prior mode only: published laboratory-fitted LFP cell models, scenario inputs are assumptions, nothing is validated on buses.",
+    "title": "E-bus battery lifecycle tool",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/auth/login": {
+      "post": {
+        "operationId": "login_api_v1_auth_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Exchange the demo username and password for a bearer token",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/auth/me": {
+      "get": {
+        "operationId": "me_api_v1_auth_me_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Who the current token belongs to",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/compare": {
+      "post": {
+        "operationId": "compare_api_v1_compare_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompareRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompareResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Paired what-if comparison of 2-4 scenarios on shared random draws",
+        "tags": [
+          "predict"
+        ]
+      }
+    },
+    "/api/v1/evidence": {
+      "get": {
+        "operationId": "get_evidence_api_v1_evidence_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Datasets, measured model errors, training coverage and known limitations",
+        "tags": [
+          "reference"
+        ]
+      }
+    },
+    "/api/v1/fleet": {
+      "post": {
+        "operationId": "fleet_api_v1_fleet_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FleetRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FleetResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Forecast a fleet of mixed-age buses in duty classes: replacements and spend by financial year, per-class and per-cohort summaries",
+        "tags": [
+          "predict"
+        ]
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health",
+        "tags": [
+          "meta"
+        ]
+      }
+    },
+    "/api/v1/predict": {
+      "post": {
+        "operationId": "predict_api_v1_predict_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PredictRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictionResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Forecast battery retention, replacement window, range and cost per km for one scenario",
+        "tags": [
+          "predict"
+        ]
+      }
+    },
+    "/api/v1/presets": {
+      "get": {
+        "operationId": "get_presets_api_v1_presets_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Bus archetypes with every default's source and evidence level",
+        "tags": [
+          "reference"
+        ]
+      }
+    },
+    "/api/v1/recommend": {
+      "post": {
+        "operationId": "recommend_api_v1_recommend_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecommendRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecommendResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Search real usage levers for a bus and return goal-based presets with plain-language explanations",
+        "tags": [
+          "predict"
+        ]
+      }
+    },
+    "/api/v1/report/email": {
+      "post": {
+        "operationId": "report_email_api_v1_report_email_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportEmailRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportSent"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Email the comparison report to one address",
+        "tags": [
+          "report"
+        ]
+      }
+    },
+    "/api/v1/report/fleet-pdf": {
+      "post": {
+        "operationId": "report_fleet_pdf_api_v1_report_fleet_pdf_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FleetReportRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "application/pdf": {}
+            },
+            "description": "the fleet PDF report"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "The fleet forecast as a PDF",
+        "tags": [
+          "report"
+        ]
+      }
+    },
+    "/api/v1/report/pdf": {
+      "post": {
+        "operationId": "report_pdf_api_v1_report_pdf_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "application/pdf": {}
+            },
+            "description": "the PDF report"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "The Bus A vs Bus B comparison as a PDF",
+        "tags": [
+          "report"
+        ]
+      }
+    },
+    "/api/v1/report/status": {
+      "get": {
+        "operationId": "report_status_api_v1_report_status_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Whether report email is set up on this server",
+        "tags": [
+          "report"
+        ]
+      }
+    },
+    "/api/v1/zones": {
+      "get": {
+        "operationId": "get_zones_api_v1_zones_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "summary": "Climate zones: monthly air-temperature statistics and data provenance",
+        "tags": [
+          "reference"
+        ]
+      }
+    }
+  }
+}
